@@ -1,7 +1,8 @@
 const About = () => {
     return (
         <>
-            <p>ExtraExtra was created, designed, and developed in Toronto by Benjamin Stubina and Benny Goldman.</p>
+            {/* ADD MORE AS NEEDED */}
+            <p>ExtraExtra was created, designed, and developed in Toronto by Benjamin Stubina and Benny Goldman. It was built using React and TailwindCSS. </p>
 
             <p>Benjamin and Benny are recent coding bootcamp grads seeking job opportunities.</p>
 
