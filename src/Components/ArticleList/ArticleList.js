@@ -1,6 +1,7 @@
 import Article from '../Article/Article';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import './ArticleList.scss'
 
 const ArticleList = () => {
 
@@ -23,9 +24,11 @@ const ArticleList = () => {
 
     if (!data) {
         return (
-            <h1>
-                Fetching Data...
-            </h1>
+          <div className='absolute left-[calc(50%-1.5rem)]'>
+            <span className="loader">
+              <span className="loader-inner"></span>
+            </span>
+          </div>
         )
     }
     
