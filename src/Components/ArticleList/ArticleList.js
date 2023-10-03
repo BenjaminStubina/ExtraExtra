@@ -1,16 +1,17 @@
 import Article from '../Article/Article';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import PUBLICATIONS from '../../Constants/publications';
 import './ArticleList.scss'
 
-const ArticleList = () => {
+const ArticleList = ({ activeSource }) => {
 
     const [data, setData] =useState();
 
     useEffect(() => {
       async function fetchData() {
         try {
-          let {data} = await axios.get("http://localhost:8080/");
+          let {data} = await axios.get(`http://localhost:8080/?publication=${activeSource}`);
           const filteredData = data.linkinbio_posts
           setData(filteredData)
         }
