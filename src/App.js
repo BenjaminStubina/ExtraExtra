@@ -1,14 +1,20 @@
 import './App.css';
 import Header from './Components/Header/Header';
 import Grid from './Components/Grid/Grid';
+import SourceSwapper from './Components/SourceSwapper/SourceSwapper';
+import { useState } from 'react';
+import PUBLICATIONS from './Constants/publications';
 
 function App() {
 
+  const [activeSource, setActiveSource] = useState(PUBLICATIONS.GLOBAL_TORONTO);
+
   return (
-    <section className='App'>
+    <main className='App'>
       <Header/>
-      <Grid/>
-    </section>
+      <SourceSwapper activeSource={activeSource} setActiveSource={setActiveSource}/>
+      <Grid activeSource={activeSource}/>
+    </main>
   );
 }
 
