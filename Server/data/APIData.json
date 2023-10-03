@@ -1,0 +1,12 @@
+{
+    "APILinks": [
+        {
+            "global": "https://api-prod.linkin.bio/api/v2/linkinbio_posts?social_profile_id=3553390&start_time=",
+            "globe": "https://api-prod.linkin.bio/api/v2/linkinbio_posts?social_profile_id=7707772&start_time=",
+            "tlife": "https://api-prod.linkin.bio/api/v2/linkinbio_posts?social_profile_id=4316382&start_time=",
+            "now": "https://api-prod.linkin.bio/api/v2/linkinbio_posts?social_profile_id=8351040&start_time=",
+            "walrus": "https://api-prod.linkin.bio/api/v2/linkinbio_posts?social_profile_id=6452093&start_time=",
+            "cland": "https://api-prod.linkin.bio/api/v2/linkinbio_posts?social_profile_id=4258660&start_time="
+        }
+    ]
+}
