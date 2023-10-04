@@ -1,17 +1,22 @@
 import Global from '../../Assets/Images/SourceLogos/Global.png';
+import Globe from '../../Assets/Images/SourceLogos/Globe.png';
+import Now from '../../Assets/Images/SourceLogos/Now.png';
+import CLand from '../../Assets/Images/SourceLogos/CLand.svg';
+import TLife from '../../Assets/Images/SourceLogos/TLife.jpg';
+import Walrus from '../../Assets/Images/SourceLogos/Walrus.png';
 import PUBLICATIONS from '../../Constants/publications';
 
-const SourceSwapper = ({ activeSource, setActiveSource }) => {  
+const SourceSwapper = ({ activeSource, setActiveSource }) => {
 
     return (
-        <form>
-            <input type="radio" name="source" checked={activeSource === PUBLICATIONS.GLOBAL_TORONTO} onClick={() => setActiveSource(PUBLICATIONS.GLOBAL_TORONTO)}/> Global Toronto
-            <input type="radio" name="source" checked={activeSource === PUBLICATIONS.GLOBE_AND_MAIL} onClick={() => setActiveSource(PUBLICATIONS.GLOBE_AND_MAIL)}/> The Globe and Mail
-            <input type="radio" name="source" checked={activeSource === PUBLICATIONS.TORONTO_LIFE} onClick={() => setActiveSource(PUBLICATIONS.TORONTO_LIFE)}/> Toronto Life
-            <input type="radio" name="source" checked={activeSource === PUBLICATIONS.WALRUS} onClick={() => setActiveSource(PUBLICATIONS.WALRUS)}/> The Walrus
-            <input type="radio" name="source" checked={activeSource === PUBLICATIONS.CANADALAND} onClick={() => setActiveSource(PUBLICATIONS.CANADALAND)}/> Canadaland
-            <input type="radio" name="source" checked={activeSource === PUBLICATIONS.NOW_TORONTO} onClick={() => setActiveSource(PUBLICATIONS.NOW_TORONTO)}/> Now Toronto
-        </form>
+        <section className='flex gap-[2rem] my-[1rem]'>
+            <img src={Global} title='Global Toronto' onClick={() => setActiveSource(PUBLICATIONS.GLOBAL_TORONTO)} className='w-[50px]'/>
+            <img src={Globe} title='The Globe and Mail' onClick={() => setActiveSource(PUBLICATIONS.GLOBE_AND_MAIL)} className='w-[50px]'/> 
+            <img src={TLife} title='Toronto Life' onClick={() => setActiveSource(PUBLICATIONS.TORONTO_LIFE)} className='w-[50px]'/> 
+            <img src={Walrus} title='The Walrus' onClick={() => setActiveSource(PUBLICATIONS.WALRUS)} className='w-[50px]'/> 
+            <img src={CLand} title='Canadaland' onClick={() => setActiveSource(PUBLICATIONS.CANADALAND)} className='w-[50px]'/> 
+            <img src={Now} title='Now Toronto' onClick={() => setActiveSource(PUBLICATIONS.NOW_TORONTO)} className='w-[50px]'/> 
+        </section>
     )
 }
 
