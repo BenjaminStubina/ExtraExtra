@@ -1,11 +1,13 @@
+import './Source.scss';
+
 const Source = ({ setActiveSource, activeSource, source }) => {
 
     const activeClassStyle = () => {
         if (activeSource === source.publication) {
-            return 'w-[50px] border-solid border-2 border-black';
+            return 'activeAnimation w-[35px] md:w-[50px] lg:w-[75px]';
         }
         else {
-            return 'w-[50px]';
+            return 'w-[35px] md:w-[50px] lg:w-[75px]';
         }
     }
 

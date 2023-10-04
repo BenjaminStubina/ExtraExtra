@@ -3,7 +3,7 @@ import SOURCES from '../../Constants/sources';
 
 const SourceSwapper = ({ activeSource, setActiveSource }) => {
     return (
-        <section className='flex gap-[2rem] my-[1rem]'>
+        <section className='flex gap-[1rem] md:gap-[3rem] xl:gap-[4rem] my-[1rem]'>
             {SOURCES.map((source) => {
                 return (
                     <Source 

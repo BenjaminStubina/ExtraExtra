@@ -5,7 +5,9 @@ const Header = () => {
                 ExtraExtra
             </span>
             <p className=''>
-                News from across Canada and beyond.
+            Unlocking News for Canada and Beyond?
+            <br/>
+            Bridging the Gap in Canada's Media Landscape?
             </p>
         </section>
     )
