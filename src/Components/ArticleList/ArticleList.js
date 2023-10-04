@@ -1,7 +1,6 @@
 import Article from '../Article/Article';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import PUBLICATIONS from '../../Constants/publications';
 import './ArticleList.scss'
 
 const ArticleList = ({ activeSource }) => {
@@ -19,9 +18,8 @@ const ArticleList = ({ activeSource }) => {
           console.log('Error fetching data')
         }
       }
-  
       fetchData();
-    },[data])
+    },[activeSource])
 
     if (!data) {
         return (
