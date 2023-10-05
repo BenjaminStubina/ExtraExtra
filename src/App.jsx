@@ -1,13 +1,13 @@
-import './App.css';
+import './App.css'
 import Header from './Components/Header/Header';
 import Grid from './Components/Grid/Grid';
 import SourceSwapper from './Components/SourceSwapper/SourceSwapper';
 import { useState } from 'react';
-import SOURCES from './Constants/sources';
+import PUBLICATIONS from './Constants/publications';
 
 function App() {
 
-  const [activeSource, setActiveSource] = useState(SOURCES[0].publication);
+  const [activeSource, setActiveSource] = useState(PUBLICATIONS[0].publication);
 
   return (
     <main className='App'>

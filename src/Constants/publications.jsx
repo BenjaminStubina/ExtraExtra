@@ -5,7 +5,7 @@ import Walrus from '../Assets/Images/SourceLogos/Walrus.png';
 import CLand from '../Assets/Images/SourceLogos/CLand.svg';
 import Now from '../Assets/Images/SourceLogos/Now.png';
 
-const SOURCES = [
+const PUBLICATIONS = [
     {
         publication: 'global_toronto',
         name: "Global",
@@ -44,4 +44,4 @@ const SOURCES = [
     }    
 ]
 
-export default SOURCES;
+export default PUBLICATIONS;
