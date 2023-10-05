@@ -10,6 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// Runs function to connect to MongoDB
 connectDB();
 
 // This can stay the same?
@@ -77,6 +78,7 @@ const makeCalls = () => {
 }
 makeCalls();
 
+// Function automatically runs every 2 hours to fetch new articles
 const autoAPICall = setInterval(function() {
     makeCalls();
 }, 7200000)

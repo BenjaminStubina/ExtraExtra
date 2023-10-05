@@ -12,14 +12,18 @@ module.exports = async function () {
         const col = db.collection(colName)
 
         let newEntry = {
-            "link_url": "Tests",
-            "image_url": "Test23",
-            "posted_time": 123,
-            "post_id": 123,
-            "publication": "Test23"
+            "link_url": "Tests", //article.link_url
+            "image_url": "Test23", //article.image_url
+            "posted_time": 123, //article.posted_time
+            "post_id": 123, //article.post_id
+            "publication": "Test23" //key
         }
 
-        const p = await col.insertOne(newEntry)
+        // if post_id of newEntry is already in the DB skip the following line of code:
+        // Return list of all post_id in the DB (store is set for linear time search)
+        if (idSet !includes article.post_id) {
+            const addEntry = await col.insertOne(newEntry)
+        }
     } catch (err) {
         console.error(err);
     }
