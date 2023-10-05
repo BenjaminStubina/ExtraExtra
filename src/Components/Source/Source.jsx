@@ -12,7 +12,6 @@ const Source = ({ setActiveSource, activeSource, source }) => {
     }
 
     const handleClick = () => {
-        activeClassStyle();
         setActiveSource(source.publication);
     }
 

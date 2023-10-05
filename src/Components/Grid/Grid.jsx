@@ -1,4 +1,4 @@
-import './Grid.css';
+import './Grid.scss';
 import ArticleList from '../ArticleList/ArticleList';
 
 const Grid = ({ activeSource }) => {
