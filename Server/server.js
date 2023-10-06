@@ -4,14 +4,11 @@ const axios = require('axios');
 const fs = require('fs');
 const APILinks = JSON.parse(fs.readFileSync('./data/APIData.json'));
 const PUBLICATIONS = require('./publications.js');
-const connectDB = require('./mongodb.js');
+const addDataDB = require('./mongodb.js');
 const app = express();
 
 app.use(express.json());
 app.use(cors());
-
-// Runs function to connect to MongoDB
-connectDB();
 
 // This can stay the same?
 app.get('/', (req, res) => {
@@ -54,33 +51,30 @@ const fetchData = (publication) => {
     }
 }
 
-// Update logic to feed data into DB
-// 1. makeCalls function will loop through list of API URLs and make calls.
-// 2. Each call will return the data from the API and then create a new entry in the DB with publication, post_id, posted_time, image_url, link_url
-// 2.5. Include some logic that prevents duplicate entries in the database (post_id !== in DB)
-const makeCalls = () => {
-    Object.keys(APILinks.APILinks[0]).forEach(key => {
-        axios.get(`${APILinks.APILinks[0][key]}`)
-        .then(res => {
+const pullDataAndSave = async () => {
 
-            // Logic to write a new JSON file with all of the data
-            fs.writeFileSync(`./data/${key}.json`, JSON.stringify(res.data))
-
-            // Logic to add entries to DB
-            let totalData = res.data.linkinbio_posts
-            totalData.forEach((article) => {
-                // Connect to DB and add all the required info to a new entry
-                // Check for doubles???
-                // console.log(key, article.id, article.image_url, article.link_url, article.posted_time);
-            })
+    const publicationKeys = Object.keys(APILinks.APILinks[0])
+    const pullPromises = publicationKeys.map(async pubKey => {
+        const link = APILinks.APILinks[0][pubKey]
+        const res = await axios.get(link)
+        return res?.data.linkinbio_posts.map((postData) => {
+            return (
+                {
+                    ...postData, publication:pubKey
+                }
+            )
         })
     })
+
+const postObjects = await Promise.all(pullPromises)
+
+await addDataDB(postObjects.flat(1))
 }
-makeCalls();
+pullDataAndSave();
 
 // Function automatically runs every 2 hours to fetch new articles
 const autoAPICall = setInterval(function() {
-    makeCalls();
+    pullDataAndSave();
 }, 7200000)
 
 app.listen(8080, () => {

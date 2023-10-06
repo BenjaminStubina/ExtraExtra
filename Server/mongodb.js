@@ -4,26 +4,35 @@ const client = new MongoClient(uri);
 const dbName = "ExtraExtra";
 const colName = "Articles"
 
-module.exports = async function () {
-
+module.exports = async function (postObjects) {
     try {
         await client.connect();
         const db = client.db(dbName);
         const col = db.collection(colName)
+        // Searching through the DB for all of the post_ids and adding them to a Set so we can filter through the Set later when adding new articles to check if the article already exists in the DB
+        const idQuery = await db.collection(colName).distinct('post_id')
+        const idSet = new Set();
+        idQuery.forEach((id) => {
+            idSet.add(id);
+        })
+        // Checking to see if the post_id of the article is already in the DB - if it isnt, we add the article to the DB
+        postObjects.map(async (post) => {
+            if (!idSet.has(post.id)) {
+                let newEntry = {
+                    "link_url": post.link_url,
+                    "image_url": post.image_url,
+                    "posted_time": post.posted_time,
+                    "post_id": post.id,
+                    "publication": post.publication
+                }
+                await col.insertOne(newEntry)
+            } 
+            else {
+                console.log("Post is already in DB")
+            }
+        })
 
-        let newEntry = {
-            "link_url": "Tests", //article.link_url
-            "image_url": "Test23", //article.image_url
-            "posted_time": 123, //article.posted_time
-            "post_id": 123, //article.post_id
-            "publication": "Test23" //key
-        }
 
-        // if post_id of newEntry is already in the DB skip the following line of code:
-        // Return list of all post_id in the DB (store is set for linear time search)
-        if (idSet !includes article.post_id) {
-            const addEntry = await col.insertOne(newEntry)
-        }
     } catch (err) {
         console.error(err);
     }
