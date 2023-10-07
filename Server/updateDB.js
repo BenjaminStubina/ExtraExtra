@@ -26,7 +26,7 @@ module.exports = async function (postObjects) {
             await col.insertOne(newEntry)
         } 
         else {
-            // console.log("Post is already in DB")
+            console.log("Post is already in DB")
         }
     })
 }

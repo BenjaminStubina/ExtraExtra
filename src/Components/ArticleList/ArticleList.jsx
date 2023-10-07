@@ -14,9 +14,7 @@ const ArticleList = ({ activeSource }) => {
       async function fetchData() {
         try {
           let {data} = await axios.get(`http://localhost:8080/?publication=${activeSource}`);
-          console.log(data);
-          // const filteredData = data.linkinbio_posts
-          // setData(filteredData)
+          setData(JSON.parse(data))
         }
         catch {
           console.log('Error fetching data')
@@ -42,7 +40,7 @@ const ArticleList = ({ activeSource }) => {
             {data.map((article) => {
                 return (
                     <Article
-                    key={article.id}
+                    key={article.post_id}
                     link={article.link_url}
                     image={article.image_url}
                     article={article}

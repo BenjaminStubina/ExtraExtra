@@ -6,15 +6,13 @@ const colName = "Articles"
 
 module.exports = async function (publication) {
     const db = client.db(dbName);
-    // Need to define a sorting function based on posted_time
     if (publication === 'all') {
-        const allQuery = await db.collection(colName).find().toArray();
+        const allQuery = await db.collection(colName).find().sort({posted_time:-1}).toArray();
         return allQuery
     }
     else {
-        const publicationQuery = await db.collection(colName).find({publication:publication}).toArray();
-        console.log(publicationQuery);
-        return publicationQuery;
+        const publicationQuery = await db.collection(colName).find({publication:publication}).sort({posted_time:-1}).toArray();
+        return JSON.stringify(publicationQuery);
     }
 };
 
