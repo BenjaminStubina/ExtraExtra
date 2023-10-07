@@ -14,8 +14,9 @@ const ArticleList = ({ activeSource }) => {
       async function fetchData() {
         try {
           let {data} = await axios.get(`http://localhost:8080/?publication=${activeSource}`);
-          const filteredData = data.linkinbio_posts
-          setData(filteredData)
+          console.log(data);
+          // const filteredData = data.linkinbio_posts
+          // setData(filteredData)
         }
         catch {
           console.log('Error fetching data')
