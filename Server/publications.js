@@ -1,5 +1,6 @@
 module.exports =
     {
+        ALL: 'all',
         GLOBAL_TORONTO: 'global_toronto',
         GLOBE_AND_MAIL: 'globe_and_mail',
         TORONTO_LIFE: 'toronto_life',

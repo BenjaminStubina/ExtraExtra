@@ -41,6 +41,7 @@ await updateDB(postObjects.flat(1))
 // Function automatically runs every 2 hours to fetch new articles
 const autoAPICall = setInterval(function() {
     pullDataAndSave();
+    console.log('APIs Called')
 }, 14400000)
 
 app.listen(8080, () => {
