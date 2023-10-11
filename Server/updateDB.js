@@ -1,5 +1,6 @@
+require('dotenv').config();
+const uri = process.env.DB_URI_PW;
 const { MongoClient } = require('mongodb');
-const uri = "mongodb+srv://benjaminstubina:Maplestory2%21@extraextra.o9rzwcs.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri);
 const dbName = "ExtraExtra";
 const colName = "Articles"

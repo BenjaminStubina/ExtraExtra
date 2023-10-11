@@ -4,11 +4,11 @@ const Source = ({ setActiveSource, activeSource, source }) => {
     const activeClassStyle = () => {
         // If the source is also the active source apply the unique style
         if (activeSource === source.publication) {
-            return 'outline outline-offset-1 w-[35px] md:w-[50px] lg:w-[75px]';
+            return 'border-b-4 border-red-500 w-[35px] md:w-[50px] lg:w-[75px] pb-[5px]';
         }
         // Else apply the basic style for non-active sources
         else {
-            return 'hover:animate-active w-[35px] md:w-[50px] lg:w-[75px]';
+            return 'hover:animate-active w-[35px] md:w-[50px] lg:w-[75px] pb-[5px]';
         }
     }
 

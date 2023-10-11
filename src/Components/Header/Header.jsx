@@ -4,7 +4,7 @@ const Header = () => {
             <span className='text-2xl md:text-3xl lg:text-5xl font-bold self-center'>
                 ExtraExtra
             </span>
-            <p className='text-sm md:text-lg lg:text-2xl my-[0.5rem] md:my-[0.75rem] lg:my-[1rem]'>
+            <p className='text-sm md:text-lg lg:text-2xl my-[16px] md:my-[20px] lg:my-[24px]'>
             Bridging the Gap in Canada's Media Landscape
             </p>
         </section>
