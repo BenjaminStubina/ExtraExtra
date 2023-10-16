@@ -7,6 +7,7 @@ import PUBLICATIONS from './Constants/publications';
 
 function App() {
 
+  // useState for the activeSource - by default it is set to Global Toronto
   const [activeSource, setActiveSource] = useState(PUBLICATIONS[0].publication);
 
   return (

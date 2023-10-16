@@ -4,8 +4,16 @@ import TLife from '../Assets/Images/SourceLogos/TLife.jpg';
 import Walrus from '../Assets/Images/SourceLogos/Walrus.png';
 import CLand from '../Assets/Images/SourceLogos/CLand.svg';
 import Now from '../Assets/Images/SourceLogos/Now.png';
+import All from '../Assets/Images/SourceLogos/infinity.png';
+
 
 const PUBLICATIONS = [
+    {
+        publication: 'all',
+        name: "all",
+        title: "All News Outlets",
+        image: All
+    },
     {
         publication: 'global_toronto',
         name: "Global",
