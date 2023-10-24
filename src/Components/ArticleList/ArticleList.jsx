@@ -26,7 +26,7 @@ const ArticleList = ({ activeSource }) => {
     // If no data is found return a loading animation
     if (!data) {
         return (
-          <div className='absolute left-[calc(50%-1.5rem)]'>
+          <div className='absolute left-[calc(50%-75px)] top-[50%]'>
             <span className="loader">
               <span className="loader-inner"></span>
             </span>
