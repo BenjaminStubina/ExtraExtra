@@ -2,14 +2,14 @@ import { Dialog } from '@mui/material'
 
 const AboutUs = ({ openAboutUs, handleCloseAboutUs }) => {
     return (
-        <Dialog open={openAboutUs} onClose={handleCloseAboutUs} className=''>
-            <section>
-                <p>ExtraExtra was created, designed, and developed in Toronto by Benjamin Stubina and Benny Goldman. It was built using ReactJS, TailwindCSS, Express, NodeJS, and MongoDB. </p>
-                <p>Benjamin and Benny are recent coding bootcamp grads seeking job opportunities.</p>
+        <Dialog open={openAboutUs} onClose={handleCloseAboutUs} className='w-full'>
+            <section className='px-4 py-4 flex flex-col justify-center'>
+                <p className=''>ExtraExtra was created, designed, and developed in Toronto by Benjamin Stubina and Benny Goldman. It was built using ReactJS, TailwindCSS, Express, NodeJS, and MongoDB. </p>
+                <p className='my-4'>Benjamin and Benny are recent coding bootcamp grads seeking job opportunities.</p>
                 <p>Get in touch:</p>
-                <ul>
+                <ul className='flex gap-12'>
                     <li>Benjamin Stubina
-                        <ul>
+                        <ul className='flex flex-col'>
                             <li><a href="https:github.com/BenjaminStubina">Github</a></li>
                             <li><a href="https:www.linkedin.com/in/benjamin-stubina/">LinkedIn</a></li>
                         </ul>
