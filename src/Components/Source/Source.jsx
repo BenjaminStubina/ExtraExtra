@@ -8,7 +8,7 @@ const Source = ({ setActiveSource, activeSource, source }) => {
         }
         // Else apply the basic style for non-active sources
         else {
-            return 'hover:animate-active w-[35px] md:w-[50px] lg:w-[75px] pb-[5px]';
+            return 'border-b-4 border-transparent hover:animate-active w-[35px] md:w-[50px] lg:w-[75px] pb-[5px]';
         }
     }
 
