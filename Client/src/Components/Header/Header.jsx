@@ -1,8 +1,7 @@
 import AboutProject from '../About/AboutProject';
 import AboutUs from '../About/AboutUs';
-import { Button } from '@mui/material';
+import { Button, createTheme, ThemeProvider } from '@mui/material';
 import { useState } from 'react';
-import './ButtonStyle.scss';
 
 const Header = () => {
 
@@ -25,21 +24,54 @@ const Header = () => {
         setOpenAboutUs(false);
     }
 
+    const theme = createTheme({
+        palette: {
+            primary: {
+                main: '#e01e37',
+                light: '#ff5c8a',
+                dark:'#ff5c8a', 
+                contrastText: '#fae0e4'
+            }
+        },
+        typography: {
+            button: {
+                fontFamily: 'News',
+            }
+        }
+    })
+
     return (
         <section className='flex flex-col mt-4 md:mt-6'>
-            <span className='text-2xl md:text-4xl lg:text-5xl font-bold self-center'>
+            <span className='text-[32px] md:text-[48px] lg:text-[64px] font-bold self-center'>
                 ExtraExtra
             </span>
-            <p className='flex justify-center text-sm md:text-lg lg:text-2xl my-[16px] md:my-[20px] lg:my-[24px]'>
+            <p className='flex justify-center text-[18px] md:text-[24px] lg:text-[32px] my-[16px] md:my-[20px] lg:my-[24px]'>
             Bridging the Gap in Canada's News Landscape
             </p>
-            <div className='flex justify-center gap-4 md:gap-[100px] lg:gap-[200px] mb-4 md:mb-6'>
-                <Button variant='outlined' color='secondary' className='Button' onClick={handleOpenAboutProject}>
-                    About The Project
-                </Button>
-                <Button variant='outlined' color='secondary' onClick={handleOpenAboutUs}>
-                    About The Devs
-                </Button>
+            <div className='flex flex-col md:flex-row items-center gap-4 md:gap-[50px] lg:gap-[100px] mb-4 md:mb-6'>
+                <ThemeProvider theme={theme}>
+                    <Button sx = {{
+                        padding: 0,
+                        width: {xs: 220, sm: 270, md: 290},
+                        fontSize: {xs: 16, sm: 18, md: 22},
+                        height: {xs: 50, sm: 60, md: 60}
+                    }} variant='contained' color='primary' className='Button' onClick={handleOpenAboutProject}>
+                        <p>
+                            About The Project  
+                        </p>
+                    </Button>
+                </ThemeProvider>
+                <ThemeProvider theme={theme}>
+                    <Button sx = {{
+                        width: {xs: 220, sm: 270, md: 290},
+                        fontSize: {xs: 16, sm: 18, md: 22},
+                        height: {xs: 50, sm: 60, md: 60},
+                    }} variant='contained' color='primary' onClick={handleOpenAboutUs}>
+                        <p>
+                            About The Devs
+                        </p>
+                    </Button>
+                </ThemeProvider>
             </div>
             <AboutProject openAboutProject={openAboutProject} handleCloseAboutProject={handleCloseAboutProject} />
             <AboutUs openAboutUs={openAboutUs} handleCloseAboutUs={handleCloseAboutUs} /> 
