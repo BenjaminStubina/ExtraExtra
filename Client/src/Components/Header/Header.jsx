@@ -28,8 +28,8 @@ const Header = () => {
         palette: {
             primary: {
                 main: '#e01e37',
-                light: '#ff5c8a',
-                dark:'#ff5c8a', 
+                light: '#ff5d8a',
+                dark:'#c1121f', 
                 contrastText: '#fae0e4'
             }
         },
@@ -52,22 +52,22 @@ const Header = () => {
                 <ThemeProvider theme={theme}>
                     <Button sx = {{
                         padding: 0,
-                        width: {xs: 220, sm: 270, md: 290},
-                        fontSize: {xs: 16, sm: 18, md: 22},
-                        height: {xs: 50, sm: 60, md: 60}
+                        width: {xs: 200, sm: 230, md: 290},
+                        fontSize: {xs: 14, sm: 18, md: 22},
+                        height: {xs: 45, sm: 60, md: 60}
                     }} variant='contained' color='primary' className='Button' onClick={handleOpenAboutProject}>
-                        <p>
+                        <p className='pt-1'>
                             About The Project  
                         </p>
                     </Button>
                 </ThemeProvider>
                 <ThemeProvider theme={theme}>
                     <Button sx = {{
-                        width: {xs: 220, sm: 270, md: 290},
-                        fontSize: {xs: 16, sm: 18, md: 22},
-                        height: {xs: 50, sm: 60, md: 60},
+                        width: {xs: 200, sm: 230, md: 290},
+                        fontSize: {xs: 14, sm: 18, md: 22},
+                        height: {xs: 45, sm: 60, md: 60},
                     }} variant='contained' color='primary' onClick={handleOpenAboutUs}>
-                        <p>
+                        <p className='pt-1'>
                             About The Devs
                         </p>
                     </Button>

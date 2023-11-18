@@ -16,18 +16,18 @@ const AboutUs = ({ openAboutUs, handleCloseAboutUs }) => {
             },
         }} open={openAboutUs} onClose={handleCloseAboutUs} className='w-full'>
             <section className='text-[20px] md:text-[22px] xl:text-[32px] p-4 md:p-6 xl:p-8 gap-2 md:gap-4 xl:gap-6'>
-                <p className='text-[20px] md:text-[22px] xl:text-[32px] underline'>
+                <p className='text-[22px] md:text-[24px] xl:text-[34px] underline'>
                         About:
                 </p>
                 <p className=''>ExtraExtra was created, designed, and developed in Toronto by Benjamin Stubina and Benny Goldman. Benjamin and Benny are recent coding bootcamp grads seeking job opportunities.</p> 
                 <div className='flex flex-col gap-2 md:gap-4 xl:gap-6 my-2 md:my-4 xl:my-6'>
-                    <p className='text-[20px] md:text-[22px] xl:text-[32px] underline'>
+                    <p className='text-[22px] md:text-[24px] xl:text-[34px] underline'>
                         Techstack:
                     </p>
                     <Techlist />
                 </div>
                 <div className='flex flex-col gap-2 xl:gap-4 my-2 md:my-4 xl:my-6'>
-                    <p className='text-[20px] md:text-[22px] xl:text-[32px] underline'>
+                    <p className='text-[22px] md:text-[24px] xl:text-[34px] underline'>
                         Get in touch:
                     </p>
                     <ul className='flex flex-col md:flex-row gap-2 md:gap-[50px] xl:gap-[150px]'>

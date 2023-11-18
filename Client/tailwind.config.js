@@ -9,6 +9,11 @@ module.exports = {
         'main': '#0123456'
       }
     },
+    screens: {
+      '1sm': '540px',
+      '2sm': '750px',
+      '2lg': '1024px'
+    },
     keyframes: {
       active: {
         '0%': { transform: 'scale(1)' },

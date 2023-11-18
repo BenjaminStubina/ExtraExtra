@@ -4,11 +4,11 @@ const Source = ({ setActiveSource, activeSource, source }) => {
     const activeClassStyle = () => {
         // If the source is also the active source apply the unique style
         if (activeSource === source.publication) {
-            return 'border-b-4 border-red-500 w-[35px] md:w-[50px] lg:w-[75px] pb-[5px]';
+            return 'self-center border-b-4 border-red-500 w-[40px] 1sm:w-[50px] 2lg:w-[75px] h-[50px] 1sm:h-[59px] 2lg:h-[84px] pb-[5px]';
         }
         // Else apply the basic style for non-active sources
         else {
-            return 'border-b-4 border-transparent hover:animate-active w-[35px] md:w-[50px] lg:w-[75px] pb-[5px]';
+            return 'self-center border-b-4 border-transparent hover:animate-active w-[40px] 1sm:w-[50px] 2lg:w-[75px] h-[50px] 1sm:h-[59px] 2lg:h-[84px] pb-[5px]';
         }
     }
 
@@ -18,7 +18,12 @@ const Source = ({ setActiveSource, activeSource, source }) => {
     }
 
     return (
-        <img src={source.image} alt={source.title} title={source.title} onClick={handleClick} className={activeClassStyle(source)}/>
+        <div className="flex flex-col">
+            <p className="hidden 2sm:flex text-center 2sm:text-[10px] 2lg:text-[16px] 2sm:w-auto 2sm:h-[20px] 2lg:h-[32px]">
+                {source.title}
+            </p>
+            <img src={source.image} alt={source.title} title={source.title} onClick={handleClick} className={activeClassStyle(source)}/>
+        </div>
     );
 };
 
