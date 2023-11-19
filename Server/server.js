@@ -38,11 +38,11 @@ const postObjects = await Promise.all(pullPromises)
 await updateDB(postObjects.flat(1))
 }
 
-// Function automatically runs every 2 hours to fetch new articles
+// Function automatically runs every 6 hours to fetch new articles
 const autoAPICall = setInterval(function() {
     pullDataAndSave();
     console.log('APIs Called')
-}, 14400000)
+}, 21600000)
 
 app.listen(8080, () => {
     console.log('Listening on port: 8080')
