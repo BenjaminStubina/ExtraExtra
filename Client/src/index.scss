@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'News';
+}
+
+@layer base {
+    @font-face {
+        font-family: "News";
+        font-weight: 500;
+        src: url('../src/Fonts/Newsreader-VariableFont_opsz\,wght.ttf');
+    }
+}
