@@ -11,14 +11,14 @@ const AboutProject = ({ openAboutProject, handleCloseAboutProject }) => {
                 },
             },
         }} open={openAboutProject} onClose={handleCloseAboutProject} className='w-full'>
-            <section className='text-[20px] md:text-[22px] xl:text-[32px] p-4 md:p-6 xl:p-8 gap-2 flex flex-col justify-center'>
-                <p className='text-[22px] md:text-[24px] xl:text-[34px] underline'>
+            <section className='text-[20px] md:text-[22px] xl:text-[26px] p-4 md:p-6 xl:p-8 gap-2 flex flex-col justify-center'>
+                <p className='text-[22px] md:text-[24px] xl:text-[30px] underline'>
                     Why:
                 </p>
                 <p>
                     ExtraExtra was created to address the limited access Canadians have to local, provincial, and international news. This access gap emerged following the recent bans META has imposed on their social media apps in response to the Online News Act passed by the Canadian Government in July of 2023.
                 </p>
-                <p className='mt-2 text-[22px] md:text-[24px] xl:text-[34px] underline'>
+                <p className='mt-2 text-[22px] md:text-[24px] xl:text-[30px] underline'>
                     Learn More:
                 </p>
                 <p>

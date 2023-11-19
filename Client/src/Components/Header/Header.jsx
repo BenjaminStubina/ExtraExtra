@@ -42,13 +42,13 @@ const Header = () => {
 
     return (
         <section className='flex flex-col mt-4 md:mt-6'>
-            <span className='text-[32px] md:text-[48px] lg:text-[64px] font-bold self-center'>
+            <span className='text-[32px] md:text-[48px] 2sm:text-[64px] font-bold self-center'>
                 ExtraExtra
             </span>
-            <p className='flex justify-center text-[18px] md:text-[24px] lg:text-[32px] my-[16px] md:my-[20px] lg:my-[24px]'>
+            <p className='flex justify-center text-[18px] md:text-[24px] 2sm:text-[32px] my-[16px] md:my-[20px] 2lg:my-[24px]'>
             Bridging the Gap in Canada's News Landscape
             </p>
-            <div className='flex flex-col md:flex-row items-center gap-4 md:gap-[50px] lg:gap-[100px] mb-4 md:mb-6'>
+            <div className='flex flex-col 2lg:flex-row items-center gap-4 2lg:gap-[50px] lg:gap-[100px] mb-4 md:mb-6'>
                 <ThemeProvider theme={theme}>
                     <Button sx = {{
                         padding: 0,

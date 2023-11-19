@@ -12,7 +12,9 @@ module.exports = {
     screens: {
       '1sm': '540px',
       '2sm': '750px',
-      '2lg': '1024px'
+      'md': '768px',
+      '2lg': '1024px',
+      'xl': '1280px'
     },
     keyframes: {
       active: {

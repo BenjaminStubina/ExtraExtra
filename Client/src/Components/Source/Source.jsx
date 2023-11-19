@@ -18,11 +18,11 @@ const Source = ({ setActiveSource, activeSource, source }) => {
     }
 
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-2">
+            <img src={source.image} alt={source.title} title={source.title} onClick={handleClick} className={activeClassStyle(source)}/>
             <p className="hidden 2sm:flex text-center 2sm:text-[10px] 2lg:text-[16px] 2sm:w-auto 2sm:h-[20px] 2lg:h-[32px]">
                 {source.title}
             </p>
-            <img src={source.image} alt={source.title} title={source.title} onClick={handleClick} className={activeClassStyle(source)}/>
         </div>
     );
 };

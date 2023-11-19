@@ -20,7 +20,7 @@ const AboutUs = ({ openAboutUs, handleCloseAboutUs }) => {
                         About:
                 </p>
                 <p className=''>ExtraExtra was created, designed, and developed in Toronto by Benjamin Stubina and Benny Goldman. Benjamin and Benny are recent coding bootcamp grads seeking job opportunities.</p> 
-                <div className='flex flex-col gap-2 md:gap-4 xl:gap-6 my-2 md:my-4 xl:my-6'>
+                <div className='flex flex-col gap-2 md:gap-4 my-2 md:my-4 xl:my-6'>
                     <p className='text-[22px] md:text-[24px] xl:text-[34px] underline'>
                         Techstack:
                     </p>
@@ -30,7 +30,7 @@ const AboutUs = ({ openAboutUs, handleCloseAboutUs }) => {
                     <p className='text-[22px] md:text-[24px] xl:text-[34px] underline'>
                         Get in touch:
                     </p>
-                    <ul className='flex flex-col md:flex-row gap-2 md:gap-[50px] xl:gap-[150px]'>
+                    <ul className='flex flex-col 1sm:flex-row gap-2 1sm:gap-[50px]'>
                         <li>Benjamin Stubina
                             <ul className='flex flex-col'>
                                 <li>
