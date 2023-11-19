@@ -13,7 +13,7 @@ const ArticleList = ({ activeSource }) => {
     useEffect(() => {
       async function fetchData() {
         try {
-          let {data} = await axios.get(`http://localhost:8080/?publication=${activeSource}`);
+          let {data} = await axios.get(`http://https://extra-extra-server.onrender.com/?publication=${activeSource}`);
           setData(JSON.parse(data))
         }
         catch {
