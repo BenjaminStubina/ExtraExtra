@@ -1,7 +1,10 @@
 function TechItem({ image, title }) {
+
+    // original styles for reference:
+    // w-[30px] 1sm:w-[40px] 2lg:w-[50px] xl:w-[70px]
+
     return <img
         src={image}
-        // title={title}
         alt={title}
         className="w-12" />;
 };
