@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
-import linkedinLogo from '../../Assets/Images/techIcons/linkedin.png';
-import githubLogo from '../../Assets/Images/techIcons/github.png';
-import emailLogo from '../../Assets/Images/techIcons/email.png';
-import instagramLogo from '../../Assets/Images/techIcons/instagram.png';
-import defaultLogo from '../../Assets/Images/techIcons/html.png';
+import linkedinLogo from '../../assets/icons/social/linkedin.png';
+import githubLogo from '../../assets/icons/social/github.png';
+import emailLogo from '../../assets/icons/social/email.png';
+import instagramLogo from '../../assets/icons/social/instagram.png';
+
 
 function generateUrl(service, identifier) {
     switch (service) {
@@ -27,7 +27,7 @@ function getImageSource(service) {
         case 'email':
             return emailLogo;
         default:
-            return defaultLogo;
+            return emailLogo;
     }
 }
 
@@ -42,18 +42,18 @@ export default function SocialLink({ service = '', identifier = '', optionalText
     return (
         <a
             {...rest}
-            className='flex flex-col md:flex-row items-center gap-2'
+            className='flex Xflex-col md:flex-row items-center gap-2'
             href={url}
             target="_blank"
             rel="noopener noreferrer"
         >
             <img
                 src={imageSrc}
-                className="w-12"
+                className="w-6"
                 alt={altText}
             />
             <p>
-                {optionalText ? optionalText : !optionalText && service === 'email' || service === 'linkedin' ? identifier : `@${identifier}`}
+                {optionalText ? optionalText : !optionalText && service === 'email' || service === 'linkedin' || service === 'github' ? identifier : `@${identifier}`}
             </p>
         </a>
     );

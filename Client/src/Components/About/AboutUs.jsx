@@ -2,7 +2,7 @@ import './ModalStyle.scss';
 import { Dialog } from '@mui/material';
 import TechList from '../TechList/TechList';
 import DevList from '../DevList/DevList';
-import { devArray, stackArray } from '../../Constants/constants';
+import { devs as devArray, shortStack as shortStackArray } from '../../utils/constants';
 
 
 const AboutUs = ({ openAboutUs, handleCloseAboutUs }) => {
@@ -18,26 +18,28 @@ const AboutUs = ({ openAboutUs, handleCloseAboutUs }) => {
         }} open={openAboutUs} onClose={handleCloseAboutUs}
             className='w-full'
         >
-            <section className='w-full'>
-
-                <div>
-                    <p className=''>ExtraExtra was created in Toronto by Benjamin Stubina and Benny Goldman.</p>
-                    <p className=''>We're career-switchers, bootcamp grads, and available for work.</p>
-                </div>
+            <section className='w-full p-6 flex flex-col gap-2'>
+                {/* <div className='flex flex-col gap-2'> */}
+                <p className=''>ExtraExtra was created in Toronto by Benjamin Stubina and Benny Goldman.</p>
+                {/* <p className=''>We're career-switchers, bootcamp grads, and available to work.</p> */}
+                {/* </div> */}
 
                 <DevList
                     className=""
                     array={devArray}
                 >
-                    Connect with us:
+                    {/* Connect with us: */}
                 </DevList>
+
 
                 <TechList
                     className="w-full"
-                    array={stackArray}
+                    array={shortStackArray}
                 >
                     Built with:
                 </TechList>
+
+
 
             </section>
         </Dialog>
@@ -73,7 +75,7 @@ const AboutUs = ({ openAboutUs, handleCloseAboutUs }) => {
                     <p className='text-[22px] md:text-[24px] xl:text-[34px] underline'>
                         Get in touch:
                     </p>
-                    <ul className='flex flex-col 1sm:flex-row gap-2 1sm:gap-[50px]'>
+                    <ul className='flex flex-col xs:flex-row gap-2 xs:gap-[50px]'>
                         <li>Benjamin Stubina
                             <ul className='flex flex-col'>
                                 <li>

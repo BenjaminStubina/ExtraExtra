@@ -4,14 +4,19 @@ function DevItem({ name, services }) {
 
     return (
         <>
-            <p>{name}</p>
-            {services.map(service => (
-                <SocialLink
-                    key={`${name}-${service.type}`}
-                    service={service.type}
-                    identifier={service.identifier}
-                />
-            ))}
+            <p><strong>{name}</strong></p>
+            <ul className='w-full flex flex-col gap-3'>
+                {services.map(service => (
+                    <li>
+                        <SocialLink
+                            key={`${name}-${service.type}`}
+                            service={service.type}
+                            identifier={service.identifier}
+                        />
+                    </li>
+                ))}
+
+            </ul>
         </>
     );
 }
@@ -21,12 +26,12 @@ export default function DevList({ array, children, ...rest }) {
         <div {...rest}>
 
             <h3 className=''>{children}</h3>
-            <ul className='flex flex-col gap-4 md:flex-row md:gap-8'>
+            <ul className='flex flex-wrap min-w-0 flex-col Xitems-center Xjustify-center gap-4 md:flex-row md:gap-8'>
 
                 {array.map(dev => {
                     return (
                         <li
-                            className="flex flex-col gap-4"
+                            className="flex md:flex-col gap-4"
                             key={dev.id}
                         >
                             <DevItem
