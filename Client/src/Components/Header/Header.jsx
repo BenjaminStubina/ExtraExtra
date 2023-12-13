@@ -49,7 +49,10 @@ const Header = () => {
                         </p>
                     </Button>
                 </ThemeProvider>
-
+                <AboutProject
+                    open={isProjectOpen}
+                    onClose={handleProjectClick}
+                />
                 <ThemeProvider theme={theme}>
                     <Button
                         sx={{
@@ -66,15 +69,11 @@ const Header = () => {
                         </p>
                     </Button>
                 </ThemeProvider>
+                <AboutUs
+                    open={isOpen}
+                    onClose={handleClick}
+                />
             </div>
-            <AboutProject
-                open={isProjectOpen}
-                onClose={handleProjectClick}
-            />
-            <AboutUs
-                open={isOpen}
-                onClose={handleClick}
-            />
         </section>
     );
 };
