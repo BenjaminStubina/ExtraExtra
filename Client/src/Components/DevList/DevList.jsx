@@ -26,7 +26,7 @@ export default function DevList({ array, children, ...rest }) {
     return (
         <div {...rest}>
 
-            <h3 className=''>{children}</h3>
+            <h3 className='underline'>{children}</h3>
             <ul className='flex flex-wrap min-w-0 flex-col Xitems-center Xjustify-center gap-4 md:flex-row md:gap-8'>
 
                 {array.map(dev => {

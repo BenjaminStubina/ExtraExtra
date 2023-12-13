@@ -19,7 +19,7 @@ export default function TechList({ array, children, ...rest }) {
     return (
         <div {...rest}>
 
-            <h3 className=''>{children}</h3>
+            <h3 className='underline'>{children}</h3>
             <ul className="flex justify-evenly">
 
                 {array.map((tech) => {
