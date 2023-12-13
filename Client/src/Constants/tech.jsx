@@ -1,11 +1,11 @@
-import JS from '../Assets/Images/techIcons/js.png'
-import React from '../Assets/Images/techIcons/react.png'
-import HTML from '../Assets/Images/techIcons/html.png'
-import SASS from '../Assets/Images/techIcons/sass.png'
-import Tailwind from '../Assets/Images/techIcons/tailwind-css.svg'
-import Mongo from '../Assets/Images/techIcons/modonDB.png'
-import Node from '../Assets/Images/techIcons/nodejs.png'
-import Express from '../Assets/Images/techIcons/express.png'
+import JS from '../Assets/Images/techIcons/js.png';
+import React from '../Assets/Images/techIcons/react.png';
+import HTML from '../Assets/Images/techIcons/html.png';
+import SASS from '../Assets/Images/techIcons/sass.png';
+import Tailwind from '../Assets/Images/techIcons/tailwind.svg';
+import Mongo from '../Assets/Images/techIcons/mongodb.png';
+import Node from '../Assets/Images/techIcons/nodejs.png';
+import Express from '../Assets/Images/techIcons/express.png';
 
 const TECHSTACK = [
     {
@@ -48,6 +48,6 @@ const TECHSTACK = [
         title: 'ExpressJS',
         image: Express
     }
-]
+];
 
 export default TECHSTACK;

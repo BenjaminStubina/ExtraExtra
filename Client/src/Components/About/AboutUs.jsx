@@ -1,10 +1,52 @@
-import { Dialog } from '@mui/material';
 import './ModalStyle.scss';
-import Techlist from '../TechList/Techlist';
-import github from '../../Assets/Images/techIcons/github.png';
-import linkedin from '../../Assets/Images/techIcons/123.png';
+import { Dialog } from '@mui/material';
+import TechList from '../TechList/TechList';
+import DevList from '../DevList/DevList';
+import { devArray, stackArray } from '../../Constants/constants';
 
 
+const AboutUs = ({ openAboutUs, handleCloseAboutUs }) => {
+    return (
+        <Dialog sx={{
+            "& .MuiDialog-container": {
+                "& .MuiPaper-root": {
+                    // width: "80%",
+                    width: "fit-content",
+                    // maxWidth: "1200px",
+                },
+            },
+        }} open={openAboutUs} onClose={handleCloseAboutUs}
+            className='w-full'
+        >
+            <section className='w-full'>
+
+                <div>
+                    <p className=''>ExtraExtra was created in Toronto by Benjamin Stubina and Benny Goldman.</p>
+                    <p className=''>We're career-switchers, bootcamp grads, and available for work.</p>
+                </div>
+
+                <DevList
+                    className=""
+                    array={devArray}
+                >
+                    Connect with us:
+                </DevList>
+
+                <TechList
+                    className="w-full"
+                    array={stackArray}
+                >
+                    Built with:
+                </TechList>
+
+            </section>
+        </Dialog>
+    );
+};
+
+export default AboutUs;
+
+/*
 const AboutUs = ({ openAboutUs, handleCloseAboutUs }) => {
     return (
         <Dialog sx={{
@@ -74,5 +116,4 @@ const AboutUs = ({ openAboutUs, handleCloseAboutUs }) => {
         </Dialog>
     );
 };
-
-export default AboutUs;
+*/
