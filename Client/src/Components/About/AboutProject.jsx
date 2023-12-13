@@ -28,7 +28,7 @@ const AboutProject = ({
         // className='w-full'
         >
 
-            <section className=''>
+            <section className='w-full p-6 flex flex-col gap-2'>
                 <ul className='flex justify-center'>
 
                     {

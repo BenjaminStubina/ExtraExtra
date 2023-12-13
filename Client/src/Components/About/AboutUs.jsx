@@ -21,24 +21,17 @@ const AboutUs = ({
                 },
             },
         }}
-            // open={openAboutUs}
             open={open}
-            // onClose={handleCloseAboutUs}
             onClose={onClose}
             className='w-full'
         >
             <section className='w-full p-6 flex flex-col gap-2'>
-                {/* <div className='flex flex-col gap-2'> */}
                 <p className=''>ExtraExtra was created in Toronto by Benjamin Stubina and Benny Goldman.</p>
-                {/* <p className=''>We're career-switchers, bootcamp grads, and available to work.</p> */}
-                {/* </div> */}
 
                 <DevList
                     className=""
                     array={devArray}
-                >
-                    {/* Connect with us: */}
-                </DevList>
+                />
 
 
                 <TechList

@@ -49,7 +49,7 @@ const Header = () => {
                         </p>
                     </Button>
                 </ThemeProvider>
-                {/* <button className='text-[fae0e4] w-48 xs:w-60 md:w-72 text-sm xs:text-lg md:text-2xl bg-[#e01e37] hover:bg-[#c1121f'>About The Project</button> */}
+
                 <ThemeProvider theme={theme}>
                     <Button
                         sx={{
