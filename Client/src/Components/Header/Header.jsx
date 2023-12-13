@@ -5,24 +5,11 @@ import { useState } from 'react';
 
 const Header = () => {
 
-    const [openAboutProject, setOpenAboutProject] = useState(false);
-    const [openAboutUs, setOpenAboutUs] = useState(false);
+    const [isProjectOpen, setIsProjectOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
-    const handleOpenAboutProject = () => {
-        setOpenAboutProject(true);
-    };
-
-    const handleCloseAboutProject = () => {
-        setOpenAboutProject(false);
-    };
-
-    const handleOpenAboutUs = () => {
-        setOpenAboutUs(true);
-    };
-
-    const handleCloseAboutUs = () => {
-        setOpenAboutUs(false);
-    };
+    const handleProjectClick = () => { setIsProjectOpen(!isProjectOpen); };
+    const handleClick = () => { setIsOpen(!isOpen); };
 
     const theme = createTheme({
         palette: {
@@ -33,11 +20,6 @@ const Header = () => {
                 contrastText: '#fae0e4'
             }
         },
-        typography: {
-            button: {
-                fontFamily: 'News',
-            }
-        }
     });
 
     return (
@@ -50,33 +32,49 @@ const Header = () => {
                     Bridging the Gap in Canada's News Landscape
                 </p>
             </hgroup>
-            <div className='flex flex-col md:flex-row items-center gap-4 Xlg:gap-[50px] lg:gap-[100px] mb-4 md:mb-6'>
+            <div className='flex flex-col md:flex-row items-center gap-0 Xlg:gap-[50px] lg:gap-[100px] mb-4 md:mb-6'>
                 <ThemeProvider theme={theme}>
-                    <Button sx={{
-                        padding: 0,
-                        width: { xs: 200, sm: 230, md: 290 },
-                        fontSize: { xs: 14, sm: 18, md: 22 },
-                        height: { xs: 45, sm: 60, md: 60 }
-                    }} variant='contained' color='primary' className='Button' onClick={handleOpenAboutProject}>
+                    <Button
+                        sx={{
+                            fontFamily: 'News',
+                            width: { xs: 200, sm: 230, md: 290 },
+                            fontSize: { xs: 14, sm: 18, md: 22 },
+                            height: { xs: 45, sm: 60, md: 60 }
+                        }}
+                        variant='contained' color='primary' className='Button'
+                        onClick={handleProjectClick}
+                    >
                         <p className='pt-1'>
                             About The Project
                         </p>
                     </Button>
                 </ThemeProvider>
+                {/* <button className='text-[fae0e4] w-48 xs:w-60 md:w-72 text-sm xs:text-lg md:text-2xl bg-[#e01e37] hover:bg-[#c1121f'>About The Project</button> */}
                 <ThemeProvider theme={theme}>
-                    <Button sx={{
-                        width: { xs: 200, sm: 230, md: 290 },
-                        fontSize: { xs: 14, sm: 18, md: 22 },
-                        height: { xs: 45, sm: 60, md: 60 },
-                    }} variant='contained' color='primary' onClick={handleOpenAboutUs}>
+                    <Button
+                        sx={{
+                            fontFamily: 'News',
+                            width: { xs: 200, sm: 230, md: 290 },
+                            fontSize: { xs: 14, sm: 18, md: 22 },
+                            height: { xs: 45, sm: 60, md: 60 }
+                        }}
+                        variant='contained' color='primary'
+                        onClick={handleClick}
+                    >
                         <p className='pt-1'>
                             About The Devs
                         </p>
                     </Button>
                 </ThemeProvider>
             </div>
-            <AboutProject openAboutProject={openAboutProject} handleCloseAboutProject={handleCloseAboutProject} />
-            <AboutUs openAboutUs={openAboutUs} handleCloseAboutUs={handleCloseAboutUs} />
+            <AboutProject
+                open={isProjectOpen}
+                onClose={handleProjectClick}
+            />
+            <AboutUs
+                open={isOpen}
+                onClose={handleClick}
+            />
         </section>
     );
 };

@@ -5,7 +5,12 @@ import DevList from '../DevList/DevList';
 import { devs as devArray, shortStack as shortStackArray } from '../../utils/constants';
 
 
-const AboutUs = ({ openAboutUs, handleCloseAboutUs }) => {
+const AboutUs = ({
+    // openAboutUs,
+    // handleCloseAboutUs,
+    open, onClose
+}
+) => {
     return (
         <Dialog sx={{
             "& .MuiDialog-container": {
@@ -15,7 +20,11 @@ const AboutUs = ({ openAboutUs, handleCloseAboutUs }) => {
                     // maxWidth: "1200px",
                 },
             },
-        }} open={openAboutUs} onClose={handleCloseAboutUs}
+        }}
+            // open={openAboutUs}
+            open={open}
+            // onClose={handleCloseAboutUs}
+            onClose={onClose}
             className='w-full'
         >
             <section className='w-full p-6 flex flex-col gap-2'>

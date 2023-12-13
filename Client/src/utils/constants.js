@@ -108,7 +108,7 @@ export const shortStack = [
 
 ];
 
-// add tag array to each pub with "local", "provincial", "national", "international" for filtering
+// add tag array to each pub with "local", "provincial", "national", "international" for future filtering
 export const pubs = [
     {
         publication: 'all',

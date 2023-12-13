@@ -7,9 +7,10 @@ function DevItem({ name, services }) {
             <p><strong>{name}</strong></p>
             <ul className='w-full flex flex-col gap-3'>
                 {services.map(service => (
-                    <li>
+                    <li
+                        key={`${name}-${service.type}`}
+                    >
                         <SocialLink
-                            key={`${name}-${service.type}`}
                             service={service.type}
                             identifier={service.identifier}
                         />

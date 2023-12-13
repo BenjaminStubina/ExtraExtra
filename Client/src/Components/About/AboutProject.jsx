@@ -4,7 +4,13 @@ import { socials as socialArray } from '../../utils/constants';
 import SocialLink from '../SocialLink/SocialLink';
 
 
-const AboutProject = ({ openAboutProject, handleCloseAboutProject }) => {
+const AboutProject = ({
+    // openAboutProject,
+    // handleCloseAboutProject ,
+
+    open,
+    onClose
+}) => {
     return (
         <Dialog sx={{
             "& .MuiDialog-container": {
@@ -14,7 +20,11 @@ const AboutProject = ({ openAboutProject, handleCloseAboutProject }) => {
                     // maxWidth: "1200px",
                 },
             },
-        }} open={openAboutProject} onClose={handleCloseAboutProject}
+        }}
+            // open={openAboutProject}
+            // onClose={handleCloseAboutProject}
+            open={open}
+            onClose={onClose}
         // className='w-full'
         >
 
@@ -53,7 +63,9 @@ const AboutProject = ({ openAboutProject, handleCloseAboutProject }) => {
                 <p>
                     To learn more about the implications of Meta's ban, listen to Front Burner's podcast episode:
                 </p>
-                <iframe className="self-center border-radius:12px mt-4 max-w-[800px]" src="https://open.spotify.com/embed/episode/65MXXSVb3sGOqu3th16wYg?utm_source=generator&theme=0&t=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" />
+                {/* <iframe className="self-center border-radius:12px mt-4 max-w-[800px]" src="https://open.spotify.com/embed/episode/65MXXSVb3sGOqu3th16wYg?utm_source=generator&theme=0&t=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media;
+                fullscreen;
+                picture-in-picture" loading="lazy" /> */}
 
             </section>
         </Dialog>
