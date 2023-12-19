@@ -7,15 +7,12 @@ module.exports = {
     extend: {
       colors: {
         'main': '#0123456'
-      }
+      },
+      screens: {
+        'xs': '540px',
+      },
     },
-    screens: {
-      '1sm': '540px',
-      '2sm': '750px',
-      'md': '768px',
-      '2lg': '1024px',
-      'xl': '1280px'
-    },
+
     keyframes: {
       active: {
         '0%': { transform: 'scale(1)' },
@@ -30,4 +27,4 @@ module.exports = {
     }
   },
   plugins: [],
-}
+};
