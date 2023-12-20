@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { pubs as pubArray } from '../../utils/constants';
-import SourceList from "../../components/SourceList/SourceList";
+import SourceList from "../../Components/SourceList/SourceList";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import ArticleGrid from "../../components/ArticleGrid/ArticleGrid";
 
