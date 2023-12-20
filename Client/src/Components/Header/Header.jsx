@@ -4,7 +4,7 @@ import { PopoverButton, PopoverBox } from "../Modal/Modal";
 import AboutUs from "../../content/AboutUs";
 import AboutTheProject from "../../content/AboutTheProject";
 
-export default function Header() {
+const Header = () => {
 
     const { isExpanded, toggleHamburger } = useHamburger();
 
@@ -75,3 +75,5 @@ export default function Header() {
         </>
     );
 };
+
+export default Header;
