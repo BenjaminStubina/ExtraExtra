@@ -5,11 +5,11 @@
   @tailwind utilities;
 
   @layer base {
-      @font-face {
+      /* @font-face {
           font-family: "News";
           src: url("../src/assets/fonts/newsreader.ttf");
-          /* font-weight: 500; */
-      }
+
+      } */
 
       html {
           /* font-family: "News"; */
