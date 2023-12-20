@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { pubs as pubArray } from '../../utils/constants';
-import PageTitle from "../../components/PageTitle/PageTitle";
 import SourceList from "../../components/SourceList/SourceList";
+import PageTitle from "../../components/PageTitle/PageTitle";
 import ArticleGrid from "../../components/ArticleGrid/ArticleGrid";
 
 export default function Home() {
