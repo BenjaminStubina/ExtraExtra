@@ -13,7 +13,7 @@ export default function AboutUs({ props, children, ...rest }) {
             </p>
 
             <DevList
-                className=""
+                className="w-full"
                 array={devArray}
             >
                 Get in touch:
