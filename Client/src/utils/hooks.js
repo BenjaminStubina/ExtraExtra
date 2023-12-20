@@ -33,7 +33,11 @@ export function useFetchData(url, source) {
                 }
 
                 let fetchData = await response.json();
-                setData(fetchData);
+                // console.log('fetchData is array: ', Array.isArray(fetchData));
+                // setData(fetchData);
+                let parseData = await JSON.parse(fetchData);
+                // console.log('parseData is array: ', Array.isArray(parseData));
+                setData(parseData);
                 setLoading(false);
             }
             catch (error) {
@@ -44,20 +48,3 @@ export function useFetchData(url, source) {
 
     return { data, loading };
 }
-
-// export function useAltFetch() {
-//     const [data, setData] = useState(null);
-//     const [loading, setLoading] = useState(true);
-
-//     useEffect(() => {
-//         fetch(`http://localhost:8080/?publication=all`)
-//             .then((res) => res.json())
-//             .then((data) => {
-//                 setData(data);
-//                 setLoading(false);
-
-//             });
-//     }, []);
-
-//     return (data, loading);
-// }

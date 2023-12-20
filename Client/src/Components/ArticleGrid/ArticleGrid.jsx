@@ -7,15 +7,17 @@ import { fetchUrls } from '../../utils/constants';
 export default function ArticleGrid({ activeSource }) {
     const { devUrl, prodUrl } = fetchUrls;
 
-    const source = useFetchData(devUrl, activeSource);
+    const source = useFetchData(prodUrl, activeSource);
+    // const source = useFetchData(devUrl, activeSource);
 
     return (
 
         <Grid>
             {source.loading ? (
-                // <AnimatedLoader />
-                "Loading..."
-            ) : source.data.map(article =>
+
+                <AnimatedLoader />
+                // "Loading..."
+            ) : (source?.data?.map(article =>
                 <ArticleItem
                     key={article.post_id}
                     link={stripLink(article.link_url)}
@@ -23,7 +25,7 @@ export default function ArticleGrid({ activeSource }) {
                     date={secondsToDate(article.posted_time)}
                     source={article.source_id ? getTitleById(article.source_id) : article.publication}
                     caption={article.caption ? article.caption : caption}
-                />
+                />)
             )}
 
         </Grid>
@@ -45,6 +47,7 @@ function ArticleItem({ image, link, date, caption, source, children }) {
                 <img
                     src={image}
                     alt={shortenCaption(caption, 25)}
+                    loading='lazy'
                     className="object-cover object-center h-full w-full Xbrightness-[0.9]  transition duration-300 ease-in-out Xhover:brightness-110"
                 />
                 <div
