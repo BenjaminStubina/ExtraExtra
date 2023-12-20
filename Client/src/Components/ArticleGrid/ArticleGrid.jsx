@@ -48,7 +48,7 @@ function ArticleItem({ image, link, date, caption, source, children }) {
                     src={image}
                     alt={shortenCaption(caption, 25)}
                     loading='lazy'
-                    className="object-cover object-center h-full w-full Xbrightness-[0.9]  transition duration-300 ease-in-out Xhover:brightness-110"
+                    className="object-cover object-center h-full w-full _brightness-[0.9]  transition duration-300 ease-in-out _hover:brightness-110"
                 />
                 <div
                     className='absolute inset-0 flex flex-col items-center justify-around text-white opacity-0 transition duration-300 ease-in-out hover:opacity-100 bg-black bg-opacity-75 p-4'
