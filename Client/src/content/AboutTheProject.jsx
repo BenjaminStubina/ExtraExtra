@@ -1,5 +1,5 @@
 import { socials as socialArray } from '../utils/constants';
-import SocialLink from '../components/SocialLink/SocialLink';
+import SocialLink from '../Components/SocialLink/SocialLink';
 
 export default function AboutTheProject({ props, children, ...rest }) {
 

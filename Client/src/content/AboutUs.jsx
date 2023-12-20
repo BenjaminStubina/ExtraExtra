@@ -1,5 +1,5 @@
-import TechList from '../components/TechList/TechList';
-import DevList from '../components/DevList/DevList';
+import TechList from '../Components/TechList/TechList';
+import DevList from '../Components/DevList/DevList';
 import { devs as devArray, shortStack as shortStackArray } from '../utils/constants';
 
 export default function AboutUs({ props, children, ...rest }) {
