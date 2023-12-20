@@ -34,10 +34,10 @@ export function useFetchData(url, source) {
 
                 let fetchData = await response.json();
                 // console.log('fetchData is array: ', Array.isArray(fetchData));
-                // setData(fetchData);
-                let parseData = await JSON.parse(fetchData);
+                setData(fetchData);
+                // let parseData = await JSON.parse(fetchData);
                 // console.log('parseData is array: ', Array.isArray(parseData));
-                setData(parseData);
+                // setData(parseData);
                 setLoading(false);
             }
             catch (error) {
