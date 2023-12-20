@@ -12,40 +12,40 @@ app.use(express.json());
 app.use(cors());
 
 // This can stay the same?
-app.get('/', async(req, res) => {
+app.get('/', async (req, res) => {
     const { publication } = req.query;
     const data = await readDB(publication);
     res.json(data);
-})
+});
 
 const pullDataAndSave = async () => {
 
-    const publicationKeys = Object.keys(APILinks.APILinks[0])
+    const publicationKeys = Object.keys(APILinks.APILinks[0]);
     const pullPromises = publicationKeys.map(async pubKey => {
-        const link = APILinks.APILinks[0][pubKey]
-        const res = await axios.get(link)
+        const link = APILinks.APILinks[0][pubKey];
+        const res = await axios.get(link);
         return res?.data.linkinbio_posts.map((postData) => {
             return (
                 {
-                    ...postData, publication:pubKey
+                    ...postData, publication: pubKey
                 }
-            )
-        })
-    })
+            );
+        });
+    });
 
-const postObjects = await Promise.all(pullPromises)
+    const postObjects = await Promise.all(pullPromises);
 
-await updateDB(postObjects.flat(1))
-}
+    await updateDB(postObjects.flat(1));
+};
 
 // Function automatically runs every 6 hours to fetch new articles
-const autoAPICall = setInterval(function() {
+const autoAPICall = setInterval(function () {
     pullDataAndSave();
-    console.log('APIs Called')
-}, 21600000)
+    console.log('APIs Called');
+}, 21600000);
 
 app.listen(8080, () => {
-    console.log('Listening on port: 8080')
+    console.log('Listening on port: 8080');
     connectDB();
     pullDataAndSave();
-})
+});

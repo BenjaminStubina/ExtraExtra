@@ -1,15 +1,13 @@
-import './Grid.scss';
-import ArticleList from '../ArticleList/ArticleList';
-
-const Grid = ({ activeSource }) => {
+const Grid = ({ className, children, ...rest }) => {
 
     return (
-        <section className="w-[100%] max-w-[1000px] flex-grow px-[20px] mb-4">
-            <div className="grid grid-props gap-3 justify-center">
-                <ArticleList activeSource={activeSource} />
-            </div>
+        <section
+            className={`grid md:gap-2 lg:gap-3 xl:gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ${className || ''}`}
+            {...rest}
+        >
+            {children}
         </section>
-    )
-}
+    );
+};
 
 export default Grid;
