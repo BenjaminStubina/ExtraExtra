@@ -1,47 +1,38 @@
 import { useFetchData } from '../../utils/hooks';
 import Grid from "../Grid/Grid";
 import AnimatedLoader from '../AnimatedLoader/AnimatedLoader';
-import { caption, shortenCaption, stripLink, secondsToDate } from '../../utils/utils';
+import { caption, getTitleById, shortenCaption, stripLink, secondsToDate } from '../../utils/utils';
+import { fetchUrls } from '../../utils/constants';
 
 export default function ArticleGrid({ activeSource }) {
+    const { devUrl, prodUrl } = fetchUrls;
 
-    // Use state to store the data retrieved from the API call to the back-end
-    // Axios call to the back-end to retrieve the data based on the selected news publisher.
-    // Publisher is passed to the back-end as a query in the GET Request
-    const devUrl = `http://localhost:8080/?publication=`;
-    const prodUrl = 'https://extra-extra-server.onrender.com/?publication=';
     const source = useFetchData(devUrl, activeSource);
-
-    if (source.loading) {
-        return (
-            <AnimatedLoader />
-        );
-    }
 
     return (
 
-        // Once data is stored in state, return all of the articles mapped out below
-
         <Grid>
-            {source.data.map((article) => {
-                return (
-                    <ArticleItem
-                        key={article.post_id}
-                        link={stripLink(article.link_url)}
-                        image={article.image_url}
-                        date={secondsToDate(article.posted_time)}
-                        source={article.publication}
-                        caption={caption}
-                    />
-                );
-            })}
+            {source.loading ? (
+                // <AnimatedLoader />
+                "Loading..."
+            ) : source.data.map(article =>
+                <ArticleItem
+                    key={article.post_id}
+                    link={stripLink(article.link_url)}
+                    image={article.med_thumbnail_url ? article.med_thumbnail_url : article.image_url}
+                    date={secondsToDate(article.posted_time)}
+                    source={article.source_id ? getTitleById(article.source_id) : article.publication}
+                    caption={article.caption ? article.caption : caption}
+                />
+            )}
+
         </Grid>
 
     );
 
 }
 
-function ArticleItem({ image, link, date, caption, source }) {
+function ArticleItem({ image, link, date, caption, source, children }) {
 
     return (
         <article className="flex h-72 w-72">
@@ -61,9 +52,10 @@ function ArticleItem({ image, link, date, caption, source }) {
                 >
                     <p>{date}</p>
                     <p className='line-clamp-6'>{caption}</p>
-                    <p>{source}</p>
+                    <p className='capitalize'>{source}</p>
                 </div>
             </a>
+            {children}
         </article>
 
     );

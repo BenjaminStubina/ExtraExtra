@@ -1,14 +1,12 @@
-import { useHamburger, useDialog } from "../../utils/hooks";
+import { useHamburger } from "../../utils/hooks";
 import { Hamburger, HamburgerHelper, NavItem, NavList, Title, Wrapper } from "../Navigation/Navigation";
-import { ModalDialog, ModalButton } from "../Modal/Modal";
+import { PopoverButton, PopoverBox } from "../Modal/Modal";
 import AboutUs from "../../content/AboutUs";
 import AboutTheProject from "../../content/AboutTheProject";
 
 export default function Header() {
 
     const { isExpanded, toggleHamburger } = useHamburger();
-    const project = useDialog();
-    const team = useDialog();
 
     const style = {
         header: {
@@ -35,9 +33,8 @@ export default function Header() {
                     <HamburgerHelper isExpanded={isExpanded}>
                         <NavList className='md:gap-2 md:justify-end'>
                             <NavItem
-                                as={ModalButton}
-                                onClick={project.toggleDialog}
-                                id='project'
+                                as={PopoverButton}
+                                popovertarget='project'
                                 className='capitalize md:uppercase
                             md:bg-red-600
                             md:hover:bg-red-700
@@ -50,9 +47,8 @@ export default function Header() {
                             '>
                                 about the project</NavItem>
                             <NavItem
-                                as={ModalButton}
-                                onClick={team.toggleDialog}
-                                id='team'
+                                as={PopoverButton}
+                                popovertarget='team'
                                 className='capitalize md:uppercase
                             md:bg-red-600
                             md:hover:bg-red-700
@@ -68,13 +64,13 @@ export default function Header() {
                     </HamburgerHelper>
                 </Wrapper>
             </header>
-            <ModalDialog
+            <PopoverBox
+                id='project'
                 Content={AboutTheProject}
-                isOpen={project.isOpen}
             />
-            <ModalDialog
+            <PopoverBox
+                id='team'
                 Content={AboutUs}
-                isOpen={team.isOpen}
             />
         </>
     );

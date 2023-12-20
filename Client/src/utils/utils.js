@@ -1,3 +1,5 @@
+import { pubs as pubArray } from "./constants";
+
 export const caption = `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias facere autem soluta, esse, a deleniti laboriosam et sint at error vel voluptatibus mollitia, temporibus repudiandae amet accusantium laborum. Nobis, inventore!
 Quia minima tempora asperiores cum ipsum aliquam maxime! Architecto ipsum qui esse iste placeat quia. Nesciunt aspernatur laboriosam officiis neque ducimus deserunt corporis quas, ex voluptates quibusdam quidem, blanditiis voluptas?
 Doloremque illo nulla id, eveniet iusto amet nisi fugiat veniam placeat, porro deleniti nobis, eaque quae autem ea adipisci facilis vero minima atque ducimus ut ad. Repellendus, sit? Repellendus, suscipit!
@@ -33,4 +35,9 @@ export function stripLink(url) {
 
 export function secondsToDate(seconds) {
     return new Date(seconds * 1000).toDateString();
+}
+
+export function getTitleById(id) {
+    const pub = pubArray.find(pub => pub.id === id);
+    return pub.title;
 }

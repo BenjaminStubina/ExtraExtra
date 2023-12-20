@@ -163,3 +163,10 @@ export const pubs = [
 
     },
 ];
+
+export const fetchUrls = {
+    devUrl: `http://localhost:8080/?publication=`,
+    prodUrl: `https://extra-extra-server.onrender.com/?publication=`,
+    devUrlAll: `http://localhost:8080/?publication=all`,
+    prodUrlAll: `https://extra-extra-server.onrender.com/?publication=all`,
+};

@@ -54,7 +54,12 @@ export function NavList({ className, children, ...rest }) {
         >
             {children.map(child => (
                 <li
-                    key={child.props.id}
+                    //                                 //
+                    //    refactor to accept any key   //
+                    //                                  //
+                    key={child.props.popovertarget}
+                    //                                  //
+                    //                                  //
                     {...rest}
                 >
                     {child}

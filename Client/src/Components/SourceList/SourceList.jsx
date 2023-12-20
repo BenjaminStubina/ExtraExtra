@@ -3,7 +3,7 @@ import { pubs as pubArray } from '../../utils/constants';
 export default function SourceList({ activeSource, setActiveSource }) {
 
     return (
-        <section className='flex flex-wrap justify-center p-2 m-2 gap-4 md:gap-4 lg:gap-6'>
+        <section className='flex _flex-wrap justify-center p-2 m-2 gap-4 lg:gap-6'>
             {pubArray.map((source) => {
                 return (
                     <SourceItem
@@ -27,7 +27,7 @@ function SourceItem({ setActiveSource, activeSource, source }) {
 
     return (
         <div
-            className="shrink-0 ml-auto mr-auto flex flex-col cursor-pointer justify-between items-center gap-1 md:p-1 md:m-1 lg:p-2 lg:m-2">
+            className="shrink-0 ml-auto mr-auto flex flex-col cursor-pointer justify-between items-center _gap-1 _md:p-1 _md:m-1 _lg:p-2 _lg:m-2">
             <img
                 src={source.image}
                 alt={source.title}
