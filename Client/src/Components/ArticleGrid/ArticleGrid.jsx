@@ -1,5 +1,5 @@
 import { useFetchData } from '../../utils/hooks';
-import Grid from "../Grid/Grid";
+import Grid from '../Grid/Grid';
 import AnimatedLoader from '../AnimatedLoader/AnimatedLoader';
 import { caption, getTitleById, shortenCaption, stripLink, secondsToDate } from '../../utils/utils';
 import { fetchUrls } from '../../utils/constants';
