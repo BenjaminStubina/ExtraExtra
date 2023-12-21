@@ -169,4 +169,6 @@ export const fetchUrls = {
     prodUrl: `https://extra-extra-server.onrender.com/?publication=`,
     devUrlAll: `http://localhost:8080/?publication=all`,
     prodUrlAll: `https://extra-extra-server.onrender.com/?publication=all`,
+    linkinbioBase: `https://api-prod.linkin.bio/api/v2/linkinbio_posts?social_profile_id=`,
 };
+

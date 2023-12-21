@@ -1,5 +1,6 @@
 import Header from './components/Header/Header';
 import Home from './pages/Home';
+import { MinstaClone } from './components/InstaClone/InstaClone';
 
 function App() {
 
@@ -7,7 +8,7 @@ function App() {
     <>
       <Header />
       <Home />
-      {/* <TestSection /> */}
+      {/* <MinstaClone /> */}
     </>
   );
 }
