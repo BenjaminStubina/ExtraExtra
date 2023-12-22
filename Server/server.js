@@ -18,8 +18,31 @@ app.get('/', async (req, res) => {
     res.json(data);
 });
 
-const pullDataAndSave = async () => {
+//this function is used to repopulate the DB with historical data
+const repopulateDB = async () => {
+    for(let i = 0; i < 150; i++) { // loops over i amount of days from an initial starting point and goes backwards in time
+        const startTime = 1703233892 //insert designed start time in JS seconds
+        const incrementTime = 86400; //seconds in a day
+        const time = startTime - i*incrementTime
+        const publicationKeys = Object.keys(APILinks.APILinks[0]);
+        const pullPromises = publicationKeys.map(async pubKey => {
+            const link = APILinks.APILinks[0][pubKey];
+            const linkDate = link+time // appends the time of designed API call to the APILink
+            const res = await axios.get(linkDate);
+            return res?.data.linkinbio_posts.map((postData) => {
+                return (
+                    {
+                        ...postData, publication: pubKey
+                    }
+                );
+            });
+        });
+        const postObjects = await Promise.all(pullPromises);
+        await updateDB(postObjects.flat(1));
+    }
+}
 
+const pullDataAndSave = async () => {
     const publicationKeys = Object.keys(APILinks.APILinks[0]);
     const pullPromises = publicationKeys.map(async pubKey => {
         const link = APILinks.APILinks[0][pubKey];
@@ -32,20 +55,19 @@ const pullDataAndSave = async () => {
             );
         });
     });
-
     const postObjects = await Promise.all(pullPromises);
-
     await updateDB(postObjects.flat(1));
 };
 
-// Function automatically runs every 6 hours to fetch new articles
+// Function automatically runs every hour to fetch new articles
 const autoAPICall = setInterval(function () {
     pullDataAndSave();
     console.log('APIs Called');
-}, 21600000);
+}, 3600000);
 
 app.listen(8080, () => {
     console.log('Listening on port: 8080');
     connectDB();
     pullDataAndSave();
+    // repopulateDB(); //run this function to repopulate the DB with historical data. See function to alter input parameters
 });
