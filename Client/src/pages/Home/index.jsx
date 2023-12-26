@@ -22,10 +22,10 @@ export default function Home() {
 
     return (
 
-        <main
-            className={`container`}
-        //  style={style.main}
-        >
+        //         <main className={`container`}
+        //             //  style={style.main}
+        // >
+        <>
             <PageTitle className={`italic text-6xl text-center`}>NEWS BANNED</PageTitle>
 
             <SourceList
@@ -35,7 +35,8 @@ export default function Home() {
             <ArticleGrid
                 activeSource={activeSource}
             />
-        </main>
+        </>
+        // </main>
 
     );
 }
