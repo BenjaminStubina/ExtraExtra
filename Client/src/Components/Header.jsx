@@ -1,6 +1,8 @@
-import { useHamburger } from "../../hooks/useHamburger";
-import { Hamburger, HamburgerHelper, NavItem, NavList, Title, Wrapper } from "../ui/Navigation";
-import { PopoverButton, PopoverBox } from "../ui/Modal";
+
+import { Link } from "react-router-dom";
+import { useHamburger } from "../hooks/useHamburger";
+import { Hamburger, HamburgerHelper, NavItem, NavList, Title, Wrapper } from "./ui/Navigation";
+import { PopoverButton, PopoverBox } from "./ui/Modal";
 
 function HeaderDate({ className }) {
     const date = new Date();
@@ -47,11 +49,11 @@ export default function Header({ props, children, ...rest }) {
                 <NavList
                     className={`absolute w-full max-w-screen-sm px-4 py-3  gap-2 border border-red-600 bg-white ${`md:relative md:bg-inherit md:items-end md:w-1/2 md:ml-auto md:pl-0 md:pr-2  _md:border-0`}`}>
 
-                    <NavItem id='1' className={`capitalize hover:underline font-medium text-gray-700 hover:text-black ${`md:uppercase`} `}>About the Project</NavItem>
+                    <NavItem as={Link} to='/about' id='1' className={`capitalize hover:underline font-medium text-gray-700 hover:text-black ${`md:uppercase`} `}>About the Project</NavItem>
 
-                    <NavItem id='2' className={`capitalize hover:underline font-medium text-gray-700 hover:text-black ${`md:uppercase`} `}>Resources</NavItem>
+                    <NavItem as={Link} to='/links' id='2' className={`capitalize hover:underline font-medium text-gray-700 hover:text-black ${`md:uppercase`} `}>Resources</NavItem>
 
-                    <NavItem id='3' className={`_capitalize font-medium text-gray-700 hover:text-black ${`md:uppercase md:hidden`}`}>secret ig mode</NavItem>
+                    {/* <NavItem as={Link} to='' id='3' className={`_capitalize font-medium text-gray-700 hover:text-black ${`md:uppercase md:hidden`}`}>secret ig mode</NavItem> */}
 
                 </NavList>
 
@@ -61,7 +63,9 @@ export default function Header({ props, children, ...rest }) {
                 as='div'
                 className={`inline-flex items-center grow p-2 ${`md:flex-col-reverse`}`}>
                 <HeaderDate className={`text-sm w-max`} />
-                <h2 className={`text-4xl shrink-0 grow text-center`}>Extra! Extra!</h2>
+                <Link to='/'>
+                    <h2 className={`text-4xl shrink-0 grow text-center`}>Extra! Extra!</h2>
+                </Link>
             </Title>
 
             <Hamburger
