@@ -1,4 +1,4 @@
-import { pubs as pubArray } from "./constants";
+import { pubs as pubArray } from "../data/constants";
 
 export const caption = `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias facere autem soluta, esse, a deleniti laboriosam et sint at error vel voluptatibus mollitia, temporibus repudiandae amet accusantium laborum. Nobis, inventore!
 Quia minima tempora asperiores cum ipsum aliquam maxime! Architecto ipsum qui esse iste placeat quia. Nesciunt aspernatur laboriosam officiis neque ducimus deserunt corporis quas, ex voluptates quibusdam quidem, blanditiis voluptas?`;
@@ -63,6 +63,6 @@ export function secondsToDate(seconds) {
 export function getTitle(article) {
     const pub = article.source_id
         ? pubArray.find(pub => pub.id === article.source_id)
-        : pubArray.find(pub => pub.publication === article.publication);
+        : pubArray.find(pub => pub.source === article.source);
     return pub ? pub.title : undefined;
 }

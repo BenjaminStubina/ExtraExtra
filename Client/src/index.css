@@ -14,7 +14,8 @@
       html {
           /* font-family: "News"; */
           /* font-family: 'News', 'Newsreader', serif; */
-          font-family: 'Newsreader', serif;
+          /* font-family: 'Newsreader', serif; */
+          font-family: Georgia, 'Times New Roman', Times, serif;
       }
   }
 

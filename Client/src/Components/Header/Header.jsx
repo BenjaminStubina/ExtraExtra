@@ -1,77 +1,76 @@
-import { useHamburger } from "../../utils/hooks";
-import { Hamburger, HamburgerHelper, NavItem, NavList, Title, Wrapper } from "../Navigation/Navigation";
-import { PopoverButton, PopoverBox } from "../Modal/Modal";
-import AboutUs from "../../content/AboutUs";
-import AboutTheProject from "../../content/AboutTheProject";
+import { useHamburger } from "../../hooks/useHamburger";
+import { Hamburger, HamburgerHelper, NavItem, NavList, Title, Wrapper } from "../ui/Navigation";
+import { PopoverButton, PopoverBox } from "../ui/Modal";
 
-export default function Header() {
-
-    const { isExpanded, toggleHamburger } = useHamburger();
-
-    const style = {
-        header: {
-            width: '100%',
-            display: 'flex',
-            flexDirection: 'column',
+function HeaderDate({ className }) {
+    const date = new Date();
+    const options = {
+        long: {
+            weekday: 'long',
+            month: 'long',
+            day: 'numeric',
+            year: 'numeric',
+        },
+        short: {
+            month: '2-digit',
+            day: '2-digit',
+            year: 'numeric'
         }
     };
+    return (
+        <div className={`${className || ''}`}>
+            <p className={`w-full hidden ${`md:inline`}`}>
+                {date.toLocaleDateString('en-us', options.long)}
+            </p>
+            <p className={`w-full ${`md:hidden`}`}>
+                {date.toLocaleDateString('en-us', options.short)}
+            </p>
+        </div>
+    );
+}
+
+export default function Header({ props, children, ...rest }) {
+
+    const header = useHamburger();
 
     return (
-        <>
-            <header style={style.header}>
-                <Wrapper className={`bg-stone-200 border-b border-slate-700`}>
-                    <Hamburger onClick={toggleHamburger}
-                        className='
-                    text-slate-700
-                    border-slate-700
-                    hover:text-red-900
-                    hover:border-red-900
-                    ' />
-                    <Title
-                        className='text-slate-800 font-bold text-3xl tracking-wider'>
-                        🗞️ExtraExtra🗞️</Title>
-                    <HamburgerHelper isExpanded={isExpanded}>
-                        <NavList className='md:gap-2 md:justify-end'>
-                            <NavItem
-                                as={PopoverButton}
-                                popovertarget='project'
-                                className='capitalize md:uppercase
-                            md:bg-red-600
-                            md:hover:bg-red-700
-                            md:text-white
-                            md:py-2
-                            md:px-4
-                            md:rounded
-                             md:transition md:duration-300 md:ease-in-out
-                             md:shrink-0
-                            '>
-                                about the project</NavItem>
-                            <NavItem
-                                as={PopoverButton}
-                                popovertarget='team'
-                                className='capitalize md:uppercase
-                            md:bg-red-600
-                            md:hover:bg-red-700
-                            md:text-white
-                            md:py-2
-                            md:px-4
-                            md:rounded
-                             md:transition md:duration-300 md:ease-in-out
-                             md:shrink-0
-                            '>
-                                about us</NavItem>
-                        </NavList>
-                    </HamburgerHelper>
-                </Wrapper>
-            </header>
-            <PopoverBox
-                id='project'
-                Content={AboutTheProject}
-            />
-            <PopoverBox
-                id='team'
-                Content={AboutUs}
-            />
-        </>
+
+        <Wrapper
+            className={`bg-gray-200 shadow-lg border-b-4 border-double border-gray-600 static`}>
+
+            <HamburgerHelper
+                className={`order-last ${`md:order-first`}`} isExpanded={header.isExpanded}>
+                {/* PUT THE ABSOLUTE ON THE HELPER INSTEAD OF THE NAVLIST AND THANK ME LATER */}
+                {/* IT WILL FIX YOUR MARGIN WOES */}
+                {/* IT WILL FIX YOUR MARGIN WOES */}
+                {/* PUT THE ABSOLUTE ON THE HELPER INSTEAD OF THE NAVLIST AND THANK ME LATER */}
+                <NavList
+                    className={`absolute w-full max-w-screen-sm px-4 py-3  gap-2 border border-red-600 bg-white ${`md:relative md:bg-inherit md:items-end md:w-1/2 md:ml-auto md:pl-0 md:pr-2  _md:border-0`}`}>
+
+                    <NavItem id='1' className={`capitalize hover:underline font-medium text-gray-700 hover:text-black ${`md:uppercase`} `}>About the Project</NavItem>
+
+                    <NavItem id='2' className={`capitalize hover:underline font-medium text-gray-700 hover:text-black ${`md:uppercase`} `}>Resources</NavItem>
+
+                    <NavItem id='3' className={`_capitalize font-medium text-gray-700 hover:text-black ${`md:uppercase md:hidden`}`}>secret ig mode</NavItem>
+
+                </NavList>
+
+            </HamburgerHelper>
+
+            <Title
+                as='div'
+                className={`inline-flex items-center grow p-2 ${`md:flex-col-reverse`}`}>
+                <HeaderDate className={`text-sm w-max`} />
+                <h2 className={`text-4xl shrink-0 grow text-center`}>Extra! Extra!</h2>
+            </Title>
+
+            <Hamburger
+                className={`border-gray-600 hover:border-black text-gray-600 hover:text-black`}
+                onClick={header.toggleHamburger} />
+
+            <p aria-label='Decorative Text' className={`hidden border border-black px-6 py-2 text-center capitalize md:inline font-medium text-sm w-40`}>"bridging the gap in canada's news landscape"</p>
+
+        </Wrapper>
+
     );
-};
+}

@@ -1,31 +1,33 @@
 import { useState } from "react";
-import { pubs as pubArray } from '../../utils/constants';
-import PageTitle from "../../components/PageTitle/PageTitle";
-import SourceList from "../../components/SourceList/SourceList";
-import ArticleGrid from "../../components/ArticleGrid/ArticleGrid";
+import { pubs as pubArray } from '../../data/constants';
+import SourceList from "./SourceList";
+import ArticleGrid from "./ArticleGrid";
+import PageTitle from "../../components/ui/PageTitle";
 
 export default function Home() {
 
     // useState for the activeSource - by default it is set to All Sources
-    const [activeSource, setActiveSource] = useState(pubArray[0].publication);
+    const [activeSource, setActiveSource] = useState(pubArray[0].source);
 
-    const style = {
-        main: {
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            width: '100%',
-            marginTop: '1.5rem',
-            marginBottom: '1.5rem',
-        }
-    };
+    // const style = {
+    //     main: {
+    //         display: 'flex',
+    //         flexDirection: 'column',
+    //         alignItems: 'center',
+    //         width: '100%',
+    //         marginTop: '1.5rem',
+    //         marginBottom: '1.5rem',
+    //     }
+    // };
 
     return (
 
-        <main style={style.main}>
-            <PageTitle>
-                Bridging the Gap in Canada's News Landscape
-            </PageTitle>
+        <main
+            className={`container`}
+        //  style={style.main}
+        >
+            <PageTitle className={`italic text-6xl text-center`}>NEWS BANNED</PageTitle>
+
             <SourceList
                 activeSource={activeSource}
                 setActiveSource={setActiveSource}
