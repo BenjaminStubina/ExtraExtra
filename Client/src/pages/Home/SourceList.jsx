@@ -22,7 +22,7 @@ function SourceItem({ setActiveSource, activeSource, source }) {
 
     // On click function to update the activeSource state to the new selected one
     const handleClick = () => {
-        setActiveSource(source.source);
+        setActiveSource(source.id);
     };
 
     return (
@@ -32,7 +32,7 @@ function SourceItem({ setActiveSource, activeSource, source }) {
                 src={source.image}
                 alt={source.title}
                 onClick={handleClick}
-                className={`w-12 md:w-16 lg:w-20 pb-4 border-b-4 ${activeSource === source.source ? ' border-red-500' : 'border-transparent hover:border-red-500 hover:animate-active'}`}
+                className={`w-12 md:w-16 lg:w-20 pb-4 border-b-4 ${activeSource === source.id ? ' border-red-500' : 'border-transparent hover:border-red-500 hover:animate-active'}`}
             />
             <p
                 className={`hidden md:inline-flex capitalize font-medium`}

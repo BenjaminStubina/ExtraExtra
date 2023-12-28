@@ -8,6 +8,6 @@ export default defineConfig(() => {
     plugins: [react(), tailwindcss(),
       // { enforce: 'pre', ...mdx() }
     ],
-    assetsInclude: ['**/*.md']
+    // assetsInclude: ['**/*.md']
   };
 });

@@ -61,8 +61,14 @@ export function secondsToDate(seconds) {
 }
 
 export function getTitle(article) {
-    const pub = article.source_id
-        ? pubArray.find(pub => pub.id === article.source_id)
-        : pubArray.find(pub => pub.source === article.source);
+    // const pub = article.source_id
+    // ? pubArray.find(pub => pub.id === article.source_id)
+    // : pubArray.find(pub => pub.source === article.source);
+    const pub = pubArray.find(pub => pub.id === article.source_id);
     return pub ? pub.title : undefined;
+}
+
+// will need to be refactored
+export function filterBySource(arr, id) {
+    return arr.filter(el => el.id === id);
 }

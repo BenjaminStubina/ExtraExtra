@@ -33,8 +33,6 @@ function HeaderDate({ className }) {
 function NewsItem({ before = ``, after = ``, children }) {
 
     return (
-        // <div className="">
-
         <p className={`
 
             w-full
@@ -54,6 +52,7 @@ function NewsItem({ before = ``, after = ``, children }) {
             after:hidden
             md:after:inline
             after:text-base
+            after:font-semibold
             after:tracking-normal
             after:text-gray-700
             after:hover:text-black
@@ -64,12 +63,11 @@ function NewsItem({ before = ``, after = ``, children }) {
                 '--after': `"${after}"`
             }}
         >{children}</p>
-        // </div>
+
     );
 }
 
 export default function Header({ props, children, ...rest }) {
-
     const header = useHamburger();
 
     return (

@@ -110,15 +110,15 @@ export const shortStack = [
 
 export const pubs = [
     {
-        source: 'all',
-        id: 1,
+        // source: 'all',
+        id: 'all',
         title: 'all news',
-        group: 'all',
+        group: 'filter',
         image: imgAll,
     },
 
     {
-        source: 'globe_and_mail',
+        // source: 'globe_and_mail',
         id: 7707772,
         title: 'globe and mail',
         group: 'national',
@@ -126,36 +126,36 @@ export const pubs = [
 
     },
     {
-        source: 'canadaland',
+        // source: 'canadaland',
         id: 4258660,
         title: 'canadaland',
         group: 'national',
         image: imgCanLand,
     },
     {
-        source: 'walrus',
+        // source: 'walrus',
         id: 6452093,
         title: 'the walrus',
         group: 'national',
         image: imgWalrus,
     },
     {
-        source: 'now_toronto',
+        // source: 'now_toronto',
         id: 8351040,
         title: 'now toronto',
         group: 'local',
         image: imgNowTor,
     },
     {
-        source: 'global_toronto',
+        // source: 'global_toronto',
         id: 3553390,
-        title: 'global toronto',
-        group: 'local',
+        title: 'global news',
+        group: 'national',
         image: imgGlobal,
 
     },
     {
-        source: 'toronto_life',
+        // source: 'toronto_life',
         id: 4316382,
         title: 'toronto life',
         group: 'local',

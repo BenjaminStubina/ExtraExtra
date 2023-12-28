@@ -8,24 +8,11 @@ import PageTitle from "../../components/ui/PageTitle";
 export default function Home() {
 
     // useState for the activeSource - by default it is set to All Sources
-    const [activeSource, setActiveSource] = useState(pubArray[0].source);
+    const [activeSource, setActiveSource] = useState(pubArray[0].id);
 
-    // const style = {
-    //     main: {
-    //         display: 'flex',
-    //         flexDirection: 'column',
-    //         alignItems: 'center',
-    //         width: '100%',
-    //         marginTop: '1.5rem',
-    //         marginBottom: '1.5rem',
-    //     }
-    // };
 
     return (
 
-        //         <main className={`container`}
-        //             //  style={style.main}
-        // >
         <>
             <PageTitle
                 as='hgroup'
@@ -44,11 +31,10 @@ export default function Home() {
                 activeSource={activeSource}
                 setActiveSource={setActiveSource}
             />
-            {/* <ArticleGrid
-                activeSource={activeSource}
-            /> */}
+            <ArticleGrid
+            // activeSource={activeSource}
+            />
         </>
-        // </main>
 
     );
 }
