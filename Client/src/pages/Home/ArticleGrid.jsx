@@ -1,6 +1,6 @@
 import { useFetchData } from '../../hooks/useFetchData';
 import { fetchUrls } from '../../data/constants';
-import { caption, getTitle, shortenCaption, stripLink, secondsToDate } from '../../utils/utils';
+import { getTitle, shortenCaption, stripLink, secondsToDate } from '../../utils/utils';
 import Grid from "../../components/ui/Grid";
 import AnimatedLoader from '../../components/ui/AnimatedLoader';
 
@@ -12,6 +12,7 @@ export default function ArticleGrid() {
     return (
 
         <Grid>
+
             {data.loading ? (
                 // <AnimatedLoader />
                 "Loading..."
@@ -22,7 +23,6 @@ export default function ArticleGrid() {
                     image={article.med_thumbnail_url || article.image_url}
                     date={secondsToDate(article.posted_time)}
                     source={getTitle(article)}
-                    // caption={article.caption || caption}
                     caption={article.caption}
                 />)
             )}
@@ -47,7 +47,7 @@ function ArticleItem({ image, link, date, caption, source }) {
             >
                 <img
                     src={image}
-                    alt={!caption ? 'no cap' : shortenCaption(caption, 25)}
+                    alt={!caption ? 'learn more' : shortenCaption(caption, 25)}
                     loading='lazy'
                     width='384'
                     height='384'
