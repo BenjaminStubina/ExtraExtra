@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { useFetchData } from "../../hooks/useFetchData";
+import { fetchUrls } from "../../data/constants";
 import { useState } from "react";
 import { pubs as pubArray } from "../../data/constants";
 import SourceList from "./SourceList";
@@ -7,17 +9,22 @@ import PageTitle from "../../components/ui/PageTitle";
 
 export default function Home() {
   // useState for the activeSource - by default it is set to All Sources
-  const [activeSource, setActiveSource] = useState(pubArray[0].id);
+  //   const [activeSource, setActiveSource] = useState(pubArray[0].id);
 
-  //   const [filter, setFilter] = useState(null);
-  // TODO: Look at per-device styles -- grid on iPad Pro (1024px) could be 2-col vs. 3-col
-  // TODO: margin-x is bad on mobile portrait - too far left - see what's going on
+  const { devUrlAll } = fetchUrls;
+  //   const fetch = useFetchData(devUrlAll);
+
+  // ! margin-x is bad on mobile portrait - too far left - see what's going on
+  // * grid on iPad Pro (1024px) could be 2-col vs. 3-col
 
   return (
     <>
-      <PageTitle as="hgroup" className={`flex flex-col w-full items-center`}>
+      <PageTitle
+        as="hgroup"
+        className={`flex flex-col w-full items-center mx-2`}
+      >
         <h1
-          className={`italic text-center font-medium text-3xl ${`_md:min-w-max md:text-4xl lg:text-5xl xl:text-6xl`}`}
+          className={`italic text-center font-medium max-w-sm xs:min-w-max text-3xl ${`md:min-w-max md:text-4xl lg:text-5xl xl:text-6xl`}`}
         >
           NEWS RETURNS TO SOCIAL MEDIA
         </h1>
@@ -30,14 +37,10 @@ export default function Home() {
       </PageTitle>
 
       <SourceList
-        activeSource={activeSource}
-        setActiveSource={setActiveSource}
-        // setFilter={setFilter}
-      />
-      <ArticleGrid
-      // filter={filter}
       // activeSource={activeSource}
+      // setActiveSource={setActiveSource}
       />
+      {/* <ArticleGrid fetch={fetch} /> */}
     </>
   );
 }
