@@ -7,15 +7,15 @@ import AnimatedLoader from '../../components/ui/AnimatedLoader';
 export default function ArticleGrid() {
     const { devUrl, devUrlAll, prodUrl } = fetchUrls;
 
-    const source = useFetchData(devUrlAll);
+    const data = useFetchData(devUrlAll);
 
     return (
 
         <Grid>
-            {source.loading ? (
+            {data.loading ? (
                 // <AnimatedLoader />
                 "Loading..."
-            ) : (source.data.map(article =>
+            ) : (data.data.map(article =>
                 <ArticleItem
                     key={article.post_id}
                     link={stripLink(article.link_url)}
@@ -57,7 +57,7 @@ function ArticleItem({ image, link, date, caption, source }) {
                     className={`absolute inset-0 h-full w-full flex flex-col items-center justify-between p-5 opacity-0 text-gray-100 bg-red-700 bg-opacity-80 border-8 border-white border-opacity-0  group-hover:opacity-100 group-hover:border-opacity-100 transition ease-linear duration-200 delay-75`}
                 >
                     <p className={`text-xl text-left self-end`}>{date}</p>
-                    <p className={`text-2xl shadow font-medium line-clamp-5 text-left`}>{caption || 'no caption available'}</p>
+                    <p className={`text-2xl shadow font-medium line-clamp-5 text-left`}>{caption || 'Learn more'}</p>
                     <p className={`text-xl capitalize self-start`}>{source}</p>
                 </div>
             </a>
