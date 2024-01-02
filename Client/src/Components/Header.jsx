@@ -128,7 +128,7 @@ export default function Header({ props, children, ...rest }) {
                     as='div'
                     className={`inline-flex items-center justify-center grow p-2 min-w-max ${`md:flex-col-reverse`}`}>
                     <HeaderDate className={`text-sm w-max`} />
-                    <h2 className={`text-3xl md:text-4xl shrink-0 grow text-center`}>
+                    <h2 className={`_font-headline text-3xl md:text-4xl shrink-0 grow text-center`}>
                         <Link to='/'>
                             Extra! Extra!
                         </Link>

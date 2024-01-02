@@ -9,7 +9,7 @@ export default function Project({ props, children, ...rest }) {
     return (
 
         <>
-            <PageTitle>Clever Coders Wrangle Workaround for Meta’s Bogus Block</PageTitle>
+            <PageTitle className={`font-headline`}>Clever Coders Wrangle Workaround for Meta’s Bogus Block</PageTitle>
             <ul className={`flex justify-center`}>
 
                 {
@@ -29,7 +29,7 @@ export default function Project({ props, children, ...rest }) {
             </ul>
 
             <DevList
-                className={``}
+                className={`_font-sans`}
                 array={devArray}
             >
                 <h2 className={`underline`}>Get in touch:</h2>
