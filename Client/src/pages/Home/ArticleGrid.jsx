@@ -1,5 +1,11 @@
-import { useFetchData } from "../../hooks/useFetchData";
-import { fetchUrls } from "../../data/constants";
+// * NOTES *
+
+// ! I was hoping to make a "src set" of the different quality images we're pulling into the DB - "thumbnail" for initial load, "image_url" for load complete, etc.
+
+// ! I turned AnimatedLoader off while I was working. We can bring it back in. I was hoping to find time to make a Skeleton loader but it hasn't happened yet
+
+// * NOTES *
+
 import {
   getTitle,
   shortenCaption,
@@ -39,9 +45,9 @@ function ArticleItem({ image, link, date, caption, source }) {
           src={image}
           alt={!caption ? "learn more" : shortenCaption(caption, 25)}
           loading="lazy"
-          width="384"
-          height="384"
-          className={`max-w-full _h-96 object-cover object-center`}
+          width="640"
+          height="640"
+          className={`max-w-full object-cover object-center`}
         />
         <div
           className={`absolute inset-0 h-full w-full flex flex-col items-center justify-between p-5 opacity-0 text-gray-100 bg-red-700 bg-opacity-80 border-8 border-white border-opacity-0  group-hover:opacity-100 group-hover:border-opacity-100 transition ease-linear duration-200 delay-75`}

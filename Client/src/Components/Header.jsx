@@ -1,39 +1,47 @@
-
 import { Link } from "react-router-dom";
 import { useHamburger } from "../hooks/useHamburger";
-import { Hamburger, HamburgerIcon, HamburgerHelper, NavItem, NavList, NavWrapper, Title, Wrapper } from "./ui/Navigation";
+import {
+  Hamburger,
+  HamburgerIcon,
+  HamburgerHelper,
+  NavItem,
+  NavList,
+  NavWrapper,
+  Title,
+  Wrapper,
+} from "./ui/Navigation";
 
 function HeaderDate({ className }) {
-    const date = new Date();
-    const options = {
-        long: {
-            weekday: 'long',
-            month: 'long',
-            day: 'numeric',
-            year: 'numeric',
-        },
-        short: {
-            month: '2-digit',
-            day: '2-digit',
-            year: 'numeric'
-        }
-    };
-    return (
-        <div className={`${className || ''}`}>
-            <p className={`w-full hidden ${`md:inline`}`}>
-                {date.toLocaleDateString('en-us', options.long)}
-            </p>
-            <p className={`w-full ${`md:hidden`}`}>
-                {date.toLocaleDateString('en-us', options.short)}
-            </p>
-        </div>
-    );
+  const date = new Date();
+  const options = {
+    long: {
+      weekday: "long",
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    },
+    short: {
+      month: "2-digit",
+      day: "2-digit",
+      year: "numeric",
+    },
+  };
+  return (
+    <div className={`${className || ""}`}>
+      <p className={`w-full hidden ${`md:inline`}`}>
+        {date.toLocaleDateString("en-us", options.long)}
+      </p>
+      <p className={`w-full ${`md:hidden`}`}>
+        {date.toLocaleDateString("en-us", options.short)}
+      </p>
+    </div>
+  );
 }
 
 function NewsItem({ before = ``, after = ``, children }) {
-
-    return (
-        <p className={`
+  return (
+    <p
+      className={`
 
             w-full
             md:text-[1px]
@@ -58,92 +66,92 @@ function NewsItem({ before = ``, after = ``, children }) {
             after:hover:text-black
 
             `}
-            style={{
-                '--before': `"${before}"`,
-                '--after': `"${after}"`
-            }}
-        >{children}</p>
-
-    );
+      style={{
+        "--before": `"${before}"`,
+        "--after": `"${after}"`,
+      }}
+    >
+      {children}
+    </p>
+  );
 }
 
 export default function Header({ props, children, ...rest }) {
-    const header = useHamburger();
+  const header = useHamburger();
 
-    return (
-        <>
-            <Wrapper
-                className={`bg-gray-200 shadow-lg border-b-4 border-double border-gray-600`}
-                position='relative'
-            >
+  return (
+    <>
+      <Wrapper
+        className={`bg-gray-200 shadow-lg border-b-4 border-double border-gray-600`}
+        position="relative"
+      >
+        <HamburgerHelper
+          className={`order-last ${`md:order-first`} mt-40 ${`md:mt-0`}`}
+          isExpanded={header.isExpanded}
+          position="absolute md:relative"
+        >
+          <NavWrapper
+            className={`px-4 py-3 _gap-2 gap-1 border border-gray-600 rounded-sm bg-gray-100 ${`md:bg-inherit md:border-none _md:items-end md:ml-auto`}`}
+          >
+            <p className={`hidden md:inline uppercase text-sm font-medium`}>
+              Top Stories:
+            </p>
 
-                <HamburgerHelper
-                    className={`order-last ${`md:order-first`} mt-40 ${`md:mt-0`}`}
-                    isExpanded={header.isExpanded}
-                    position='absolute md:relative'
-                >
-                    <NavWrapper
-                        className={`px-4 py-3 _gap-2 gap-1 border border-gray-600 rounded-sm bg-gray-100 ${`md:bg-inherit md:border-none _md:items-end md:ml-auto`}`}
-                    >
-                        <p
-                            className={`hidden md:inline uppercase text-sm font-medium`}>
-                            Top Stories:
-                        </p>
+            <NavList>
+              <NavItem
+                as={Link}
+                to="/about"
+                id="1"
+                onClick={header.toggleHamburger}
+                className={` hover:underline font-medium text-gray-700 hover:text-black ${`md:normal-case`} `}
+              >
+                <NewsItem before="Meet the team" after="……………2A">
+                  About ExtraExtra
+                </NewsItem>
+              </NavItem>
 
-                        <NavList>
+              <NavItem
+                as={Link}
+                to="/links"
+                id="2"
+                onClick={header.toggleHamburger}
+                className={`hover:underline font-medium text-gray-700 hover:text-black ${`md:`} `}
+              >
+                <NewsItem before="Bill C-18 in the news" after="…3B">
+                  Resources
+                </NewsItem>
+              </NavItem>
 
-                            <NavItem
-                                as={Link}
-                                to='/about'
-                                id='1'
-                                className={` hover:underline font-medium text-gray-700 hover:text-black ${`md:normal-case`} `}>
-                                <NewsItem
-                                    before="Meet the team"
-                                    after='……………2A'
-                                >
-                                    About ExtraExtra
-                                </NewsItem>
-                            </NavItem>
+              {/* <NavItem as={Link} to='' id='3' className={`_capitalize font-medium text-gray-700 hover:text-black ${`md:uppercase md:hidden`}`}>secret ig mode</NavItem> */}
+            </NavList>
+          </NavWrapper>
+        </HamburgerHelper>
 
-                            <NavItem
-                                as={Link}
-                                to='/links'
-                                id='2'
-                                className={`hover:underline font-medium text-gray-700 hover:text-black ${`md:`} `}>
-                                <NewsItem
-                                    before="Bill C-18 in the news"
-                                    after='…3B'
-                                >
-                                    Resources
-                                </NewsItem>
-                            </NavItem>
+        <Title
+          as="div"
+          className={`inline-flex items-center justify-center grow p-2 min-w-max ${`md:flex-col-reverse`}`}
+        >
+          <HeaderDate className={`text-sm w-max`} />
+          <h2
+            className={`_font-headline text-3xl md:text-4xl shrink-0 grow text-center`}
+          >
+            <Link to="/">Extra! Extra!</Link>
+          </h2>
+        </Title>
 
-                            {/* <NavItem as={Link} to='' id='3' className={`_capitalize font-medium text-gray-700 hover:text-black ${`md:uppercase md:hidden`}`}>secret ig mode</NavItem> */}
+        <Hamburger
+          className={`border-gray-600 hover:border-black text-gray-600 hover:text-black`}
+          onClick={header.toggleHamburger}
+          Icon={HamburgerIcon}
+        />
 
-                        </NavList>
-                    </NavWrapper>
-                </HamburgerHelper>
-
-                <Title
-                    as='div'
-                    className={`inline-flex items-center justify-center grow p-2 min-w-max ${`md:flex-col-reverse`}`}>
-                    <HeaderDate className={`text-sm w-max`} />
-                    <h2 className={`_font-headline text-3xl md:text-4xl shrink-0 grow text-center`}>
-                        <Link to='/'>
-                            Extra! Extra!
-                        </Link>
-                    </h2>
-                </Title>
-
-                <Hamburger
-                    className={`border-gray-600 hover:border-black text-gray-600 hover:text-black`}
-                    onClick={header.toggleHamburger}
-                    Icon={HamburgerIcon}
-                />
-
-                <p aria-label='Decorative Text' className={`hidden border border-black px-6 py-2 text-center capitalize md:inline font-medium text-sm w-40`}>"bridging the gap in canada's news landscape"</p>
-            </Wrapper>
-
-        </>
-    );
+        <p
+          aria-label="Decorative Text"
+          className={`hidden border border-black px-6 py-2 text-center capitalize md:inline font-medium text-sm w-40`}
+        >
+          "bridging the gap in canada's news landscape"
+        </p>
+      </Wrapper>
+    </>
+  );
 }

@@ -1,3 +1,9 @@
+// * NOTES
+// TODO refactor `fetch` to use .filter() and .groupBy()
+// ! grid at lg-viewport could be 2-col vs. 3-col
+// TODO grid margin-x is bad on mobile portrait - too far left - see what's going on
+// * NOTES
+
 import { Link } from "react-router-dom";
 import { useFetchData } from "../../hooks/useFetchData";
 import { fetchUrls } from "../../data/constants";
@@ -8,14 +14,9 @@ import ArticleGrid from "./ArticleGrid";
 import PageTitle from "../../components/ui/PageTitle";
 
 export default function Home() {
-  // useState for the activeSource - by default it is set to All Sources
-  //   const [activeSource, setActiveSource] = useState(pubArray[0].id);
-
-  const { devUrlAll } = fetchUrls;
-  //   const fetch = useFetchData(devUrlAll);
-
-  // ! margin-x is bad on mobile portrait - too far left - see what's going on
-  // * grid on iPad Pro (1024px) could be 2-col vs. 3-col
+  const [filter, setFilter] = useState(null);
+  const { devUrlAll, prodUrlAll } = fetchUrls;
+  const fetch = useFetchData(devUrlAll);
 
   return (
     <>
@@ -36,11 +37,8 @@ export default function Home() {
         </p>
       </PageTitle>
 
-      <SourceList
-      // activeSource={activeSource}
-      // setActiveSource={setActiveSource}
-      />
-      {/* <ArticleGrid fetch={fetch} /> */}
+      <SourceList />
+      <ArticleGrid fetch={fetch} />
     </>
   );
 }
