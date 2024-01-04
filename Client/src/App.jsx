@@ -2,8 +2,8 @@ import { Routes, Route } from 'react-router-dom';
 
 import Layout from './Components/Layout';
 import Home from './pages/Home/Home';
-import Project from './pages/Project/';
-import Resources from './pages/Resources';
+import Project from './pages/Project/index';
+import Resources from './pages/Resources/index';
 
 
 function App() {
