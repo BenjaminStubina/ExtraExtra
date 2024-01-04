@@ -11,7 +11,7 @@ import { useState } from "react";
 import { pubs as pubArray } from "../../data/constants";
 import SourceList from "./SourceList";
 import ArticleGrid from "./ArticleGrid";
-import PageTitle from "../../components/ui/PageTitle";
+import PageTitle from "../../Components/ui/PageTitle";
 
 export default function Home() {
   const [filter, setFilter] = useState(null);
