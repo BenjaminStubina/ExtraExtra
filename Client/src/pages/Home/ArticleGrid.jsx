@@ -12,8 +12,8 @@ import {
   stripLink,
   secondsToDate,
 } from "../../utils/utils";
-import Grid from "../../components/ui/Grid";
-import AnimatedLoader from "../../components/ui/AnimatedLoader";
+import Grid from "../../Components/ui/Grid";
+import AnimatedLoader from "../../Components/ui/AnimatedLoader";
 
 export default function ArticleGrid({ fetch }) {
   return (

@@ -8,17 +8,10 @@ import { Link } from "react-router-dom";
 import { useFetchData } from "../../hooks/useFetchData";
 import { fetchUrls } from "../../data/constants";
 import { useState } from "react";
-<<<<<<< HEAD:Client/src/pages/Home/Home.jsx
-import { pubs as pubArray } from '../../utils/constants';
-import SourceList from "../../Components/SourceList/SourceList";
-import PageTitle from "../../Components/PageTitle/PageTitle";
-import ArticleGrid from "../../Components/ArticleGrid/ArticleGrid";
-=======
 import { pubs as pubArray } from "../../data/constants";
 import SourceList from "./SourceList";
 import ArticleGrid from "./ArticleGrid";
-import PageTitle from "../../components/ui/PageTitle";
->>>>>>> e5e540a0326301c22e8acaa394de721cf81805bc:Client/src/pages/Home/index.jsx
+import PageTitle from "../../Components/ui/PageTitle";
 
 export default function Home() {
   const [filter, setFilter] = useState(null);
