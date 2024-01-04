@@ -1,7 +1,7 @@
 import TechList from './TechList';
 import DevList from './DevList';
-import SocialLink from '../../components/ui/SocialLink';
-import PageTitle from '../../components/ui/PageTitle';
+import SocialLink from '../../Components/ui/SocialLink';
+import PageTitle from '../../Components/ui/PageTitle';
 import { devs as devArray, shortStack as shortStackArray, socials as socialArray } from '../../data/constants';
 
 export default function Project({ props, children, ...rest }) {

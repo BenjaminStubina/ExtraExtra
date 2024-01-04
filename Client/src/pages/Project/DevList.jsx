@@ -1,4 +1,4 @@
-import SocialLink from "../../components/ui/SocialLink";
+import SocialLink from "../../Components/ui/SocialLink";
 
 export default function DevList({ array, children, ...rest }) {
     return (

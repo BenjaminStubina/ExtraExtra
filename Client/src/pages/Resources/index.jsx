@@ -1,7 +1,7 @@
 import { resources as resourceArray } from "../../data/constants";
-import SpotifyEmbed from '../../components/ui/SpotifyEmbed';
+import SpotifyEmbed from '../../Components/ui/SpotifyEmbed';
 import ResourceList from "./ResourceList";
-import PageTitle from "../../components/ui/PageTitle";
+import PageTitle from "../../Components/ui/PageTitle";
 
 export default function Resources({ props, children, ...rest }) {
 
