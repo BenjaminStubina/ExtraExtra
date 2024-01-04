@@ -42,8 +42,8 @@ export default function Header() {
                             md:py-2
                             md:px-4
                             md:rounded
-                             md:transition md:duration-300 md:ease-in-out
-                             md:shrink-0
+                            md:transition md:duration-300 md:ease-in-out
+                            md:shrink-0
                             '>
                                 about the project</NavItem>
                             <NavItem
@@ -56,8 +56,8 @@ export default function Header() {
                             md:py-2
                             md:px-4
                             md:rounded
-                             md:transition md:duration-300 md:ease-in-out
-                             md:shrink-0
+                            md:transition md:duration-300 md:ease-in-out
+                            md:shrink-0
                             '>
                                 about us</NavItem>
                         </NavList>

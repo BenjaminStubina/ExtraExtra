@@ -5,16 +5,18 @@
   @tailwind utilities;
 
   @layer base {
-      @font-face {
-          font-family: "News";
-          src: url("../src/assets/fonts/newsreader.ttf");
-          /* font-weight: 500; */
-      }
-
       html {
+<<<<<<< HEAD
           /* font-family: "News"; */
           /* font-family: 'News', 'Newsreader', serif; */
           font-family: 'Newsreader', serif;
+=======
+          @apply font-serif
+      }
+
+      h2 {
+          @apply font-headline
+>>>>>>> e5e540a0326301c22e8acaa394de721cf81805bc
       }
   }
 
