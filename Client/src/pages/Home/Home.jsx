@@ -34,7 +34,7 @@ export default function Home() {
           <span
             className={`font-serif text-xs hover:underline ml-1 ${`xm:ml-12 md:ml-20 lg:ml-28 xl:ml-52 md:font-light lg:text-sm`}`}
           >
-            <Link to="about"> See HEROES, Page A2</Link>
+            <Link to="about">See HEROES, Page A2</Link>
           </span>
         </p>
       </PageTitle>
