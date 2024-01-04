@@ -16,7 +16,8 @@ import PageTitle from "../../components/ui/PageTitle";
 export default function Home() {
   const [filter, setFilter] = useState(null);
   const { devUrlAll, prodUrlAll } = fetchUrls;
-  const fetch = useFetchData(devUrlAll);
+  // const fetch = useFetchData(devUrlAll);
+  const fetch = useFetchData(prodUrlAll);
 
   return (
     <>
@@ -29,7 +30,7 @@ export default function Home() {
         >
           NEWS RETURNS TO SOCIAL MEDIA
         </h1>
-        <p className="font-headline min-w-0 max-w-max text-xl font-medium md:text-3xl md:font-normal lg:text-4xl xl:text-5xl">
+        <p className="font-headline min-w-0 w-full text-center _max-w-max text-xl font-medium md:text-3xl md:font-normal lg:text-4xl xl:text-5xl">
           Canadians rejoice
           <span className="text-xs md:font-light lg:text-sm font-normal hover:underline">
             <Link to="about"> See HEROES, Page A2</Link>
