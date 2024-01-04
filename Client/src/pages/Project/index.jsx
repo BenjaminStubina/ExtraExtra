@@ -4,7 +4,7 @@ import SocialLink from '../../Components/ui/SocialLink';
 import PageTitle from '../../Components/ui/PageTitle';
 import { devs as devArray, shortStack as shortStackArray, socials as socialArray } from '../../data/constants';
 
-export default function Project() {
+export default function Project({ props, children, ...rest }) {
 
     return (
 

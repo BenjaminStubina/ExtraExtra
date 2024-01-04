@@ -3,7 +3,7 @@ import SpotifyEmbed from '../../Components/ui/SpotifyEmbed';
 import ResourceList from "./ResourceList";
 import PageTitle from "../../Components/ui/PageTitle";
 
-export default function Resources() {
+export default function Resources({ props, children, ...rest }) {
 
     return (
         <div>
