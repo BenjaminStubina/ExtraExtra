@@ -16,9 +16,9 @@ export default function Layout({ props, children, ...rest }) {
   return (
     <div>
       <Header />
-      <main className={`flex w-full`}>
+      <main className={``}>
         <section
-          className={`container my-2 py-2 inline-flex flex-col min-w-[320px] max-w-full items-center justify-center ${``}`}
+          className={`container my-2 py-2 min-w-[320px] text-center ${`md:max-w-3xl lg:max-w-5xl xl:max-w-7xl`}`}
         >
           <Outlet />
         </section>
