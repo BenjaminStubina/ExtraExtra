@@ -1,24 +1,23 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route } from "react-router-dom";
 
-import Layout from './Components/Layout';
-import Home from './pages/Home/Home';
-import Project from './pages/Project/index';
-import Resources from './pages/Resources/index';
-
+import Layout from "./Components/Layout";
+import Home from "./pages/Home/Home";
+// import Project from './pages/Project/'
+// import Home from "./pages/Home";
+import Project from "./pages/Project";
+import Resources from "./pages/Resources";
 
 function App() {
-
   return (
     <>
       <Routes>
-        <Route path='/' element={<Layout />}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path='about' element={<Project />} />
-          <Route path='links' element={<Resources />} />
+          <Route path="about" element={<Project />} />
+          <Route path="links" element={<Resources />} />
         </Route>
       </Routes>
     </>
-
   );
 }
 

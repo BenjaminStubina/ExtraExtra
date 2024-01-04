@@ -9,7 +9,7 @@ import imgExpress from "../assets/icons/stack/express.png";
 
 import imgGlobal from "../assets/icons/news/globalnews.png";
 import imgGlobe from "../assets/icons/news/globeandmail.png";
-import imgTorLife from "../assets/icons/news/torontolife.jpg";
+import imgTorLife from "../assets/icons/news/torontolife.png";
 import imgWalrus from "../assets/icons/news/walrus.png";
 import imgCanLand from "../assets/icons/news/canadland.svg";
 import imgNowTor from "../assets/icons/news/nowtoronto.png";

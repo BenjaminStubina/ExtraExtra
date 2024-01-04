@@ -18,6 +18,7 @@ module.exports = {
       },
       screens: {
         xs: "508px",
+        xm: "544px",
       },
       fontFamily: {
         headline: ["Newsreader"],
