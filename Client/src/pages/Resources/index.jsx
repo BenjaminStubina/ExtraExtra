@@ -7,7 +7,7 @@ export default function Resources() {
 
     return (
         <div>
-            <PageTitle className={`underline`}>Resources</PageTitle>
+            {/* <PageTitle className={`underline`}>Resources</PageTitle>
             <ResourceList
                 array={resourceArray}
             />
@@ -15,7 +15,8 @@ export default function Resources() {
             <SpotifyEmbed
                 type='playlist'
                 src='4FqtZqnOi0apW2rq86g8a6'
-            />
+            /> */}
+            Hello
         </div>
 
     );
