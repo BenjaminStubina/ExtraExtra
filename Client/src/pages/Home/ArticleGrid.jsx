@@ -1,9 +1,8 @@
 // * NOTES *
-
+// * NOTES *
 // ! I was hoping to make a "src set" of the different quality images we're pulling into the DB - "thumbnail" for initial load, "image_url" for load complete, etc.
-
 // ! I turned AnimatedLoader off while I was working. We can bring it back in. I was hoping to find time to make a Skeleton loader but it hasn't happened yet
-
+// * NOTES *
 // * NOTES *
 
 import {
@@ -15,19 +14,27 @@ import {
 import Grid from "../../Components/ui/Grid";
 import AnimatedLoader from "../../Components/ui/AnimatedLoader";
 
-export default function ArticleGrid({ fetch }) {
+export default function ArticleGrid({ fetch, filter, group }) {
+  const filteredData = fetch?.data?.filter((obj) => {
+    if (filter === "all") return true;
+    if (filter === obj.source_id) return true;
+    if (group.includes(obj.source_id)) return true;
+    return false;
+  });
+
   return (
     <Grid>
       {fetch.loading
         ? // <AnimatedLoader />
           "Loading..."
-        : fetch.data.map((article) => (
+        : filteredData.map((article) => (
             <ArticleItem
               key={article.post_id}
+              sourceId={article.source_id}
               link={stripLink(article.link_url)}
               image={article.med_thumbnail_url || article.image_url}
               date={secondsToDate(article.posted_time)}
-              source={getTitle(article)}
+              sourceName={getTitle(article)}
               caption={article.caption}
             />
           ))}
@@ -35,9 +42,10 @@ export default function ArticleGrid({ fetch }) {
   );
 }
 
-function ArticleItem({ image, link, date, caption, source }) {
+function ArticleItem({ sourceId, image, link, date, caption, sourceName }) {
   return (
     <article
+      data-source_id={sourceId}
       className={`w-full group relative overflow-hidden rounded border-4 border-red-700 border-opacity-0 hover:border-opacity-80 transition ease-linear duration-100 delay-[50ms]`}
     >
       <a href={link} target="_blank" rel="noopener noreferrer" className={``}>
@@ -56,7 +64,7 @@ function ArticleItem({ image, link, date, caption, source }) {
           <p className={`text-2xl shadow font-medium line-clamp-5 text-left`}>
             {caption || "Learn more"}
           </p>
-          <p className={`text-xl capitalize self-start`}>{source}</p>
+          <p className={`text-xl capitalize self-start`}>{sourceName}</p>
         </div>
       </a>
     </article>

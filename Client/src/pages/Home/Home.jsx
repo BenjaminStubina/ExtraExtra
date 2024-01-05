@@ -1,23 +1,23 @@
 // * NOTES
-// TODO refactor `fetch` to use .filter() and .groupBy()
+// * NOTES
 // ! grid at lg-viewport could be 2-col vs. 3-col
-// TODO grid margin-x is bad on mobile portrait - too far left - see what's going on
+// ! grid margin-x is bad on mobile portrait - too far left - see what's going on
+// * NOTES
 // * NOTES
 
 import { Link } from "react-router-dom";
 import { useFetchData } from "../../hooks/useFetchData";
+import { useFilter } from "../../hooks/useFilter";
 import { fetchUrls } from "../../data/constants";
-import { useState } from "react";
-import { pubs as pubArray } from "../../data/constants";
 import SourceList from "./SourceList";
 import ArticleGrid from "./ArticleGrid";
 import PageTitle from "../../Components/ui/PageTitle";
 
 export default function Home() {
-  const [filter, setFilter] = useState(null);
   const { devUrlAll, prodUrlAll } = fetchUrls;
   // const fetch = useFetchData(devUrlAll);
   const fetch = useFetchData(prodUrlAll);
+  const { filter, group, handleClick } = useFilter();
 
   return (
     <>
@@ -39,8 +39,8 @@ export default function Home() {
         </p>
       </PageTitle>
 
-      <SourceList />
-      <ArticleGrid fetch={fetch} />
+      <SourceList onClick={handleClick} filter={filter} group={group} />
+      <ArticleGrid fetch={fetch} filter={filter} group={group} />
     </>
   );
 }
