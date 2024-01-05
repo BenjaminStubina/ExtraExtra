@@ -1,23 +1,23 @@
 // * NOTES
-// TODO refactor `fetch` to use .filter() and .groupBy()
+// * NOTES
 // ! grid at lg-viewport could be 2-col vs. 3-col
-// TODO grid margin-x is bad on mobile portrait - too far left - see what's going on
+// ! grid margin-x is bad on mobile portrait - too far left - see what's going on
+// * NOTES
 // * NOTES
 
 import { Link } from "react-router-dom";
 import { useFetchData } from "../../hooks/useFetchData";
+import { useFilter } from "../../hooks/useFilter";
 import { fetchUrls } from "../../data/constants";
-import { useState } from "react";
-import { pubs as pubArray } from "../../data/constants";
 import SourceList from "./SourceList";
 import ArticleGrid from "./ArticleGrid";
 import PageTitle from "../../Components/ui/PageTitle";
 
 export default function Home() {
-  const [filter, setFilter] = useState(null);
   const { devUrlAll, prodUrlAll } = fetchUrls;
   // const fetch = useFetchData(devUrlAll);
   const fetch = useFetchData(prodUrlAll);
+  const { filter, group, handleClick } = useFilter();
 
   return (
     <>
@@ -34,13 +34,13 @@ export default function Home() {
           <span
             className={`font-serif text-xs hover:underline ml-1 ${`xm:ml-12 md:ml-20 lg:ml-28 xl:ml-52 md:font-light lg:text-sm`}`}
           >
-            <Link to="about"> See HEROES, Page A2</Link>
+            <Link to="about">See HEROES, Page A2</Link>
           </span>
         </p>
       </PageTitle>
 
-      <SourceList />
-      <ArticleGrid fetch={fetch} />
+      <SourceList onClick={handleClick} filter={filter} group={group} />
+      <ArticleGrid fetch={fetch} filter={filter} group={group} />
     </>
   );
 }
