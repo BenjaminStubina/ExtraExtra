@@ -1,10 +1,3 @@
-// * NOTES
-// * NOTES
-// ! grid at lg-viewport could be 2-col vs. 3-col
-// ! grid margin-x is bad on mobile portrait - too far left - see what's going on
-// * NOTES
-// * NOTES
-
 import { Link } from "react-router-dom";
 import { useFetchData } from "../../hooks/useFetchData";
 import { useFilter } from "../../hooks/useFilter";
@@ -15,8 +8,8 @@ import PageTitle from "../../Components/ui/PageTitle";
 
 export default function Home() {
   const { devUrlAll, prodUrlAll } = fetchUrls;
-  // const fetch = useFetchData(devUrlAll);
-  const fetch = useFetchData(prodUrlAll);
+  const fetch = useFetchData(devUrlAll);
+  // const fetch = useFetchData(prodUrlAll);
   const { filter, group, handleClick } = useFilter();
 
   return (
@@ -34,7 +27,7 @@ export default function Home() {
           <span
             className={`font-serif text-xs hover:underline ml-1 ${`xm:ml-12 md:ml-20 lg:ml-28 xl:ml-52 md:font-light lg:text-sm`}`}
           >
-            <Link to="about">See HEROES, Page A2</Link>
+            <Link to="about">See HEROES, Page 2A</Link>
           </span>
         </p>
       </PageTitle>
