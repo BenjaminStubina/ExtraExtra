@@ -8,8 +8,8 @@ import PageTitle from "../../Components/ui/PageTitle";
 
 export default function Home() {
   const { devUrlAll, prodUrlAll } = fetchUrls;
-  const fetch = useFetchData(devUrlAll);
-  // const fetch = useFetchData(prodUrlAll);
+  // const fetch = useFetchData(devUrlAll);
+  const fetch = useFetchData(prodUrlAll);
   const { filter, group, handleClick } = useFilter();
 
   return (
