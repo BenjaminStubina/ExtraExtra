@@ -14,7 +14,7 @@ import imgWalrus from "../assets/icons/news/walrus.png";
 import imgCanLand from "../assets/icons/news/canadland.svg";
 import imgNowTor from "../assets/icons/news/nowtoronto.png";
 import imgAll from "../assets/icons/news/everysource.png";
-import imgNational from "../assets/icons/news/canada.svg";
+import imgNational from "../assets/icons/news/canadasymbols.png";
 import imgToronto from "../assets/icons/news/toronto.svg";
 
 export const socials = [
@@ -127,13 +127,13 @@ export const pubs = [
   },
   {
     id: "national",
-    title: "national",
+    title: "national news",
     group: "filter",
     image: imgNational,
   },
   {
     id: "toronto",
-    title: "toronto",
+    title: "local news",
     group: "filter",
     image: imgToronto,
   },
@@ -146,7 +146,7 @@ export const pubs = [
   },
   {
     id: 3553390,
-    title: "global news",
+    title: "global",
     group: "national",
     image: imgGlobal,
   },

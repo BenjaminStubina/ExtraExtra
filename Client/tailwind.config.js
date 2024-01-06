@@ -24,19 +24,18 @@ module.exports = {
         headline: ["Newsreader"],
         serif: ["Georgia", "Times New Roman", "Times", "serif"],
       },
-    },
-
-    keyframes: {
-      active: {
-        "0%": { transform: "scale(1)" },
-        "25%": { transform: "scale(1.15)" },
-        "50%": { transform: "scale(1)" },
-        "75%": { transform: "scale(0.85)" },
-        "100%": { transform: "scale(1)" },
+      keyframes: {
+        active: {
+          "0%": { transform: "scale(1)" },
+          "25%": { transform: "scale(1.1)" },
+          "50%": { transform: "scale(1)" },
+          "75%": { transform: "scale(0.9)" },
+          "100%": { transform: "scale(1)" },
+        },
       },
-    },
-    animation: {
-      active: "active 2s linear infinite",
+      animation: {
+        active: "active 1.5s linear infinite",
+      },
     },
   },
   plugins: [],
