@@ -1,27 +1,28 @@
-// * NOTES
-// * NOTES
-// ! The animation is refactored to scale icon only.
-// ! It loses some fun but it feels less distracting.
-// ! I'm happy to revert or change.
-// ! Legacy utility classes are down there, commented out.
-// TODO consider splitting the <nav> into 2+ <ul>'s for direct styling:
-// TODO -- 1. group === 'filter' ... AND ...
-// TODO -- 2. group !== 'filter' ... OR ...
-// TODO -- 2b. [group === 'national'] and [group === 'toronto']
-// * NOTES
-// * NOTES
+/*
+! Notes !
+* The animation is refactored to scale icon only.
+* It loses some fun but it feels less distracting.
+* I'm happy to revert or change.
+* Legacy utility classes are down there, commented out.
+TODO split <nav> into 2+ <ul>'s for direct styling:
+TODO -- 1. group === 'filter' ... AND ...
+TODO -- 2. group !== 'filter' ... OR ...
+TODO -- 2b. [group === 'national'] and [group === 'toronto']
+ */
 
 import { pubs as pubArray } from "../../data/constants";
 
 export default function SourceList({ onClick, filter, group }) {
   return (
     <nav aria-label="source filter" className={`my-2 md:mt-4`}>
-      <ul className="flex md:flex-wrap lg:flex-nowrap ">
+      <ul
+        className={`overflow-x-auto no-scrollbar flex md:flex-wrap lg:flex-nowrap`}
+      >
         {pubArray.map((sourceObj) => {
           return (
             <li
               key={sourceObj.id}
-              className={`flex-1 group mx-1 ${`md:basis-[18%] lg:basis-auto`}`}
+              className={`flex-1 mx-1 ${`group`} ${`md:basis-[18%] lg:basis-auto`}`}
             >
               <SourceItem
                 source={sourceObj}
@@ -41,11 +42,15 @@ export default function SourceList({ onClick, filter, group }) {
 function SourceItem({ source, onClick, isActive }) {
   return (
     <button
-      // className={`pb-1 border-b-4 border-transparent hover:border-red-500 hover:animate-active ${`md:basis-1/6  md:pb-0 md:flex flex-col cursor-pointer justify-between items-center gap-2 lg:basis-auto`}`}
+      // className={`hover:border-red-500 hover:animate-active`}
       onClick={onClick}
-      className={`w-full cursor-pointer pb-1 xs:my-2 border-b-4 border-transparent group-hover:border-red-500 ${`md:pb-0 md:flex flex-col justify-between items-center gap-2`} ${
-        isActive ? "bg-green-500" : ""
-      }`}
+      className={`w-[4.5rem] cursor-pointer pt-2 pb-2 xs:my-2 border-b-4 border-transparent ${
+        isActive && source.group !== "filter"
+          ? ""
+          : isActive && source.group === "filter"
+          ? ""
+          : ""
+      } ${`group-hover:border-red-500`} ${`md:border-none md:w-full md:py-0 md:flex flex-col justify-between items-center gap-2`} `}
     >
       <img
         src={source.image}
@@ -53,9 +58,23 @@ function SourceItem({ source, onClick, isActive }) {
         width={`64`}
         height={`64`}
         // className={``}
-        className={`group-hover:animate-active`}
+        className={`w-[4.5rem] md:w-16 group-hover:animate-active group-hover:opacity-90 ${
+          isActive && source.group !== "filter"
+            ? "opacity-100"
+            : isActive && source.group === "filter"
+            ? " opacity-90"
+            : "opacity-30"
+        }`}
       />
-      <p className={`hidden ${`md:inline min-w-max capitalize font-medium`}`}>
+      <p
+        className={`hidden ${`md:inline min-w-max capitalize font-medium border-b-4 border-transparent `} ${`group-hover:border-red-500 group-hover:border-opacity-80`} ${
+          isActive && source.group !== "filter"
+            ? "border-red-500"
+            : isActive && source.group === "filter"
+            ? "border-red-500"
+            : ""
+        }`}
+      >
         {source.title}
       </p>
     </button>

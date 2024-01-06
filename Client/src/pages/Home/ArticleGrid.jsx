@@ -1,9 +1,10 @@
-// * NOTES *
-// * NOTES *
-// ! I was hoping to make a "src set" of the different quality images we're pulling into the DB - "thumbnail" for initial load, "image_url" for load complete, etc.
-// ! I turned AnimatedLoader off while I was working. We can bring it back in. I was hoping to find time to make a Skeleton loader but it hasn't happened yet
-// * NOTES *
-// * NOTES *
+/*
+ ! Notes !
+ * Grid @ lg-viewport could be 2-col vs. 3-col
+ * Grid margin-x is bad on mobile portrait - too far left
+ * Item can take a [srcset] of images in the DB - "thumbnail" when loading, "image_url" when loaded, etc.
+ * AnimatedLoader is off. We can bring it back in. Post-launch goal: Replace with Skeleton loader
+ */
 
 import {
   getTitle,
@@ -15,7 +16,7 @@ import Grid from "../../Components/ui/Grid";
 import AnimatedLoader from "../../Components/ui/AnimatedLoader";
 
 export default function ArticleGrid({ fetch, filter, group }) {
-  const filteredData = fetch?.data?.filter((obj) => {
+  const filteredData = fetch.data?.filter((obj) => {
     if (filter === "all") return true;
     if (filter === obj.source_id) return true;
     if (group.includes(obj.source_id)) return true;

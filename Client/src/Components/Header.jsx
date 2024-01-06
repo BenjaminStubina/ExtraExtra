@@ -117,7 +117,7 @@ export default function Header({ props, children, ...rest }) {
                 onClick={header.toggleHamburger}
                 className={`hover:underline font-medium text-gray-700 hover:text-black ${`md:`} `}
               >
-                <NewsItem before="Bill C-18 in the news" after="…3B">
+                <NewsItem before="Bill C-18 in the news" after="……3B">
                   Resources
                 </NewsItem>
               </NavItem>
