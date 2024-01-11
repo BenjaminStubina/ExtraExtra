@@ -10,6 +10,7 @@ import {
   Title,
   Wrapper,
 } from "./ui/Navigation";
+import logo from '../assets/images/Website-Logo.png'
 
 function HeaderDate({ className }) {
   const date = new Date();
@@ -135,7 +136,9 @@ export default function Header({ props, children, ...rest }) {
           <h2
             className={`_font-headline text-3xl md:text-4xl shrink-0 grow text-center`}
           >
-            <Link to="/">Extra! Extra!</Link>
+            <Link to="/">
+              <img src={logo} className="absolute top-[6px] right-[calc(50%-100px)] md:top-0 md:right-0 md:relative w-[200px] md:w-[250px] justify-center items-center self-center" />
+            </Link>
           </h2>
         </Title>
 

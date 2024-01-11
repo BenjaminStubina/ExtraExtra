@@ -14,6 +14,7 @@ import {
 } from "../../utils/utils";
 import Grid from "../../Components/ui/Grid";
 import AnimatedLoader from "../../Components/ui/AnimatedLoader";
+import LoadingGrid from "./LoadingGrid";
 
 export default function ArticleGrid({ fetch, filter, group }) {
   const filteredData = fetch.data?.filter((obj) => {
@@ -27,7 +28,7 @@ export default function ArticleGrid({ fetch, filter, group }) {
     <Grid>
       {fetch.loading
         ? // <AnimatedLoader />
-          "Loading..."
+          <LoadingGrid/>
         : filteredData.map((article) => (
             <ArticleItem
               key={article.post_id}

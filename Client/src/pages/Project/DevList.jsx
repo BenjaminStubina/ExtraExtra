@@ -2,14 +2,14 @@ import SocialLink from "../../Components/ui/SocialLink";
 
 export default function DevList({ array, children, ...rest }) {
   return (
-    <div {...rest}>
+    <div className="flex" {...rest}>
       {children}
       <ul
-        className={`flex flex-wrap min-w-0 flex-col Xitems-center Xjustify-center gap-4 md:flex-row md:gap-8`}
+        className={`flex flex-wrap min-w-0 flex-col self-center items-center gap-4 md:flex-row md:gap-8`}
       >
         {array.map((dev) => {
           return (
-            <li className={`flex md:flex-col gap-4`} key={dev.id}>
+            <li className={`flex md:flex-col gap-0 md:gap-4 self-center`} key={dev.id}>
               <DevItem name={dev.name} services={dev.services} />
             </li>
           );
