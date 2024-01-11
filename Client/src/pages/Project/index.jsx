@@ -11,10 +11,10 @@ import {
 export default function Project({ props, children, ...rest }) {
   return (
     <>
-      <PageTitle className={`font-headline`}>
+      <PageTitle className={`font-headline text-[22px] md:text-[28px] xl:text-[36px] xl:mt-[50px]`}>
         Clever Coders Wrangle Workaround for Meta’s Bogus Block
       </PageTitle>
-      <ul className={`flex justify-center`}>
+      <ul className={`flex flex-col md:flex-row justify-center items-center my-4 gap-4`}>
         {socialArray.map((social) => {
           return (
             <li key={social.id}>
@@ -28,12 +28,12 @@ export default function Project({ props, children, ...rest }) {
         })}
       </ul>
 
-      <DevList className={`_font-sans`} array={devArray}>
-        <h2 className={`underline`}>Get in touch:</h2>
+      <DevList className={`flex flex-col _font-sans`} array={devArray}>
+        <h2 className={`underline text-[18px] my-4 md:text-[26px] xl:text-[32px]`}>Get in touch:</h2>
       </DevList>
 
-      <TechList className={`w-full`} array={shortStackArray}>
-        <h2 className={`underline`}>Built with:</h2>
+      <TechList className={`flex flex-col w-full my-4 self-center items-center`} array={shortStackArray}>
+        <h2 className={`underline text-[18px] my-4 md:text-[26px] xl:text-[32px]`}>Built with:</h2>
       </TechList>
     </>
   );

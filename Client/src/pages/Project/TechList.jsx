@@ -19,7 +19,7 @@ export default function TechList({ array, children, ...rest }) {
     return (
         <div {...rest}>
             {children}
-            <ul className={`flex justify-evenly`}>
+            <ul className={`flex justify-between w-[300px] md:w-[450px]`}>
 
                 {array.map((tech) => {
                     return (
