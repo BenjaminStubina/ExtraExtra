@@ -1,7 +1,7 @@
 export default function ResourceList({ array, className, children, ...rest }) {
   return (
     <div className={`${className || ""}`} {...rest}>
-      <ul className={`flex flex-col gap-1 md:gap-2`}>
+      <ul className={`flex flex-col gap-1 md:gap-2 text-[16px] md:text-[18px]`}>
         {array.map((resource) => {
           return (
             <li
@@ -22,7 +22,7 @@ function ResourceItem({ className, props, ...rest }) {
   return (
     <p className={`${className || ""}`} {...rest}>
       <span>{date}:</span> "{title}" [
-      <a href={url} className="hover:underline decoration-blue-900 text-blue-900">
+      <a href={url} className="hover:underline decoration-blue-700 text-blue-700">
         {source}
       </a>
       ]
