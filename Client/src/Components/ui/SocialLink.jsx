@@ -52,7 +52,7 @@ export default function SocialLink({ service = '', identifier = '', optionalText
                 className={`w-6`}
                 alt={altText}
             />
-            <p>
+            <p className='text-[16px] md:text-[20px] xl:text-[24px]'>
                 {optionalText ? optionalText : !optionalText && service === 'email' || service === 'linkedin' || service === 'github' ? identifier : `@${identifier}`}
             </p>
         </a>
