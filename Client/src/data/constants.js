@@ -29,25 +29,25 @@ export const socials = [
     id: 3,
     type: "email",
     identifier: "extraextranewsca@gmail.com",
-    optionalText: "Send us an email",
+    optionalText: "Email",
   },
 ];
 
 export const devs = [
   {
     id: "benjamin",
-    name: "",
+    name: "Benjamin Stubina",
     services: [
-      { type: "github", identifier: "BenjaminStubina" },
       { type: "linkedin", identifier: "benjamin-stubina" },
+      { type: "github", identifier: "BenjaminStubina" },
     ],
   },
   {
     id: "benny",
-    name: "",
+    name: "Benny Goldman",
     services: [
-      { type: "github", identifier: "bennygoldman" },
       { type: "linkedin", identifier: "bennygoldman" },
+      { type: "github", identifier: "bennygoldman" },
     ],
   },
 ];
