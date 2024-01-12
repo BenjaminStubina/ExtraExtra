@@ -1,62 +1,71 @@
 // import PropTypes from 'prop-types';
-import linkedinLogo from '../../assets/icons/social/linkedin.png';
-import githubLogo from '../../assets/icons/social/github.png';
-import emailLogo from '../../assets/icons/social/email.png';
-import instagramLogo from '../../assets/icons/social/instagram.png';
-
+import linkedinLogo from "../../assets/icons/social/linkedin.png";
+import githubLogo from "../../assets/icons/social/github.png";
+import emailLogo from "../../assets/icons/social/email.png";
+import instagramLogo from "../../assets/icons/social/instagram.png";
 
 function generateUrl(service, identifier) {
-    switch (service) {
-        case 'email':
-            return `mailto:${identifier}`;
-        case 'linkedin':
-            return `https://www.linkedin.com/in/${identifier}`;
-        default:
-            return `https://www.${service}.com/${identifier}`;
-    }
+  switch (service) {
+    case "email":
+      return `mailto:${identifier}`;
+    case "linkedin":
+      return `https://www.linkedin.com/in/${identifier}`;
+    default:
+      return `https://www.${service}.com/${identifier}`;
+  }
 }
 
 function getImageSource(service) {
-    switch (service) {
-        case 'linkedin':
-            return linkedinLogo;
-        case 'github':
-            return githubLogo;
-        case 'instagram':
-            return instagramLogo;
-        case 'email':
-            return emailLogo;
-        default:
-            return emailLogo;
-    }
+  switch (service) {
+    case "linkedin":
+      return linkedinLogo;
+    case "github":
+      return githubLogo;
+    case "instagram":
+      return instagramLogo;
+    case "email":
+      return emailLogo;
+    default:
+      return emailLogo;
+  }
 }
 
-export default function SocialLink({ service = '', identifier = '', optionalText = '', ...rest }) {
+export default function SocialLink({
+  service = "",
+  identifier = "",
+  optionalText = "",
+  className,
+  ...rest
+}) {
+  if (!service || !identifier) return null;
 
-    if (!service || !identifier) return null;
+  const url = generateUrl(service, identifier);
+  const imageSrc = getImageSource(service);
+  const altText = service.charAt(0).toUpperCase() + service.slice(1);
 
-    const url = generateUrl(service, identifier);
-    const imageSrc = getImageSource(service);
-    const altText = service.charAt(0).toUpperCase() + service.slice(1);
-
-    return (
-        <a
-            {...rest}
-            className={`flex Xflex-col md:flex-row items-center gap-2`}
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            <img
-                src={imageSrc}
-                className={`w-6`}
-                alt={altText}
-            />
-            <p className='text-[16px] md:text-[20px] xl:text-[24px]'>
-                {optionalText ? optionalText : !optionalText && service === 'email' || service === 'linkedin' || service === 'github' ? identifier : `@${identifier}`}
-            </p>
-        </a>
-    );
+  return (
+    <a
+      className={`flex _flex-col md:flex-row items-center _gap-2 ${
+        className || ""
+      }`}
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      {...rest}
+    >
+      <img src={imageSrc} className={`w-8`} alt={altText} />
+      <p className={`text-lg ${`lg:text-xl`}`}>
+        {optionalText
+          ? optionalText
+          : (!optionalText && service === "email") ||
+            service === "linkedin" ||
+            service === "github"
+          ? //   ? identifier
+            ``
+          : `@${identifier}`}
+      </p>
+    </a>
+  );
 }
 
 // SocialLink.propTypes = {

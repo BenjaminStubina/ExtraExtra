@@ -1,5 +1,4 @@
-import TechList from "./TechList";
-import DevList from "./DevList";
+import { DevList, TechList, SocialList } from "./Lists";
 import SocialLink from "../../Components/ui/SocialLink";
 import PageTitle from "../../Components/ui/PageTitle";
 import {
@@ -11,72 +10,127 @@ import { Link } from "react-router-dom";
 
 export default function Project({ props, children, ...rest }) {
   return (
-    <>
-      <PageTitle className={`font-headline text-[22px] md:text-[28px] xl:text-[36px] mt-[5px] md:mt-[25px]`}>
-        Clever Coders Wrangle Workaround for Meta’s Bogus Block
-      </PageTitle>
-      <section className="flex flex-col gap-4 my-4 text-[16px] md:text-[18px] xl:text-[22px]">
-        <p>
-          TORONTO — ExtraExtra is stepping up for Canadians at a time when access to reliable information is more important than ever.
+    <div
+      className={`${`lg:flex lg:justify-center lg:max-w-6xl lg:gap-6 _lg:mx-auto`}`}
+    >
+      <article
+        className={`text-left text-pretty tracking-wide text text-lg ${`lg:max-w-2xl _lg:mx-auto`}`}
+      >
+        <PageTitle
+          className={`my-4 text-left text-4xl text-balance italic font-medium ${`_lg:min-w-max  _lg:max-w-2xl _lg:mx-auto`}`}
+          // className={`font-headline text-2xl md:text-3xl xl:text-4xl _mt-1 _md:mt-6`}
+        >
+          Clever Coders Wrangle Workaround for Bogus Block
+        </PageTitle>
+        <p className={`mb-4`}>
+          TORONTO — ExtraExtra is stepping up for Canadians at a time when
+          access to reliable information is more important than ever.
         </p>
-        <p>
-          Since August 2023, Meta has 
-            <a target='_' href='https://www.nytimes.com/2023/08/02/business/media/meta-news-in-canada.html' className="hover:underline decoration-blue-700 text-blue-700">
-              &nbsp;blocked news&nbsp;
-            </a> 
-          on Instagram and Facebook for users across Canada. The decision is a direct response to the Online News Act, a Federal bill requiring Big Tech to 
-            <a target='_' href='https://www.canada.ca/en/canadian-heritage/services/online-news.html' className="hover:underline decoration-blue-700 text-blue-700">
-              &nbsp;share ad revenue&nbsp;
-            </a>
-          with news publishers. “This ban hurts all Canadians by placing barriers on high-quality journalism,” says ExtraExtra co-creator 
-            <a target='_' href='https://www.linkedin.com/in/bennygoldman' className="hover:underline decoration-blue-700 text-blue-700">
-              &nbsp;Benny Goldman
-            </a> 
+        {/* <img src={OnlineNews} alt="" /> */}
+        <p className={`mb-4`}>
+          Since August 2023,&nbsp;
+          <a
+            href="https://www.nytimes.com/2023/08/02/business/media/meta-news-in-canada.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`underline hover:no-underline decoration-blue-800 text-blue-800`}
+          >
+            news has been blocked
+          </a>
+          &nbsp;on major social media platforms for users across Canada. The
+          block is in response to the&nbsp;
+          <a
+            href="https://www.canada.ca/en/canadian-heritage/services/online-news.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`underline hover:no-underline decoration-blue-800 text-blue-800`}
+          >
+            Online News Act
+          </a>
+          , a Federal bill to strengthen the media through a share of revenue
+          from the platforms people rely on for news. “This ban hurts all
+          Canadians by placing barriers on high-quality journalism,” says
+          ExtraExtra co-creator&nbsp;
+          <a
+            href="https://www.linkedin.com/in/bennygoldman"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`underline hover:no-underline decoration-blue-800 text-blue-800`}
+          >
+            Benny Goldman
+          </a>
           .
         </p>
-        <p>
-          ExtraExtra is a way to help Canadians stay informed. Follow 
-            <a target='_' href='https://www.instagram.com/ExtraExtraCA' className="hover:underline decoration-blue-700 text-blue-700">
-              &nbsp;@ExtraExtraCA&nbsp;
-            </a> 
-          on Instagram to get the latest headlines. Visit 
-            <a target='_' href='https://www.extraextranews.ca' className="hover:underline decoration-blue-700 text-blue-700">
-              &nbsp;extraextranews.ca&nbsp;
-            </a> 
-          to access full stories. News is curated from local, national, and international sources. According to lead developer
-            <a target='_' href='https://www.linkedin.com/in/benjamin-stubina' className="hover:underline decoration-blue-700 text-blue-700">
-              &nbsp;Benjamin Stubina
-            </a> 
-          , “we want to meet people where they're at while staying under Big Tech's radar.”
+        <p className={`mb-4`}>
+          ExtraExtra is a way to help Canadians stay informed. Follow&nbsp;
+          <a
+            href="https://www.instagram.com/ExtraExtraCA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`underline hover:no-underline decoration-blue-800 text-blue-800`}
+          >
+            @ExtraExtraCA
+          </a>
+          &nbsp;to get the latest headlines. Visit&nbsp;
+          <Link
+            to="/"
+            className={`underline hover:no-underline decoration-blue-800 text-blue-800`}
+          >
+            extraextranews.ca
+          </Link>
+          &nbsp;to access full stories. News is curated from local, national,
+          and international sources. According to co-creator&nbsp;
+          <a
+            href="https://www.linkedin.com/in/benjamin-stubina"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`underline hover:no-underline decoration-blue-800 text-blue-800`}
+          >
+            Benjamin Stubina
+          </a>
+          , “we want to meet people where they're at while staying under Big
+          Tech's radar.”
         </p>
-        <p>
-          To learn more about the implications of Meta's ban, visit the
-            <Link to="/links" className="hover:underline decoration-blue-700 text-blue-700">
-              &nbsp;Resources Page
-            </Link>
+        <p className={`mb-4`}>
+          To learn more about the implications of the ban, visit the&nbsp;
+          <Link
+            to="/links"
+            className={`underline hover:no-underline decoration-blue-800 text-blue-800`}
+          >
+            Resources Page.
+          </Link>
         </p>
-      </section>
-      <ul className={`flex flex-col md:flex-row justify-center items-center mt-6 mb-4 gap-4`}>
-        {socialArray.map((social) => {
-          return (
-            <li key={social.id}>
-              <SocialLink
-                service={social.type}
-                identifier={social.identifier}
-                optionalText={social.optionalText}
-              />
-            </li>
-          );
-        })}
-      </ul>
+        <p className={`mb-4 text-base`}>
+          ExtraExtra was created in Toronto by Benny Goldman and Benjamin
+          Stubina.
+        </p>
+      </article>
+      <aside
+        className={`order-first flex flex-col ${`_lg:max-w-5xl _lg:mx-auto _lg:justify-center lg:mt-8 gap-8 md:flex-row lg:flex-col _md:w-full _md:flex-wrap _md:justify-around  md:gap-4`}`}
+      >
+        <SocialList array={socialArray} className={`_md:w-full ${``}`}>
+          <h2
+            className={`text-left text-xl font-semibold mb-4 ${`_md:text-center`}`}
+          >
+            Follow:
+          </h2>
+        </SocialList>
+        <DevList array={devArray} className={`_md:w-1/3 ${``}`}>
+          <h2
+            className={`text-left text-xl font-semibold mb-4 ${`_md:text-center`}`}
+          >
+            Connect:
+          </h2>
+        </DevList>
 
-      <DevList className={`flex flex-col _font-sans`} array={devArray}>
-        <h2 className={`text-[18px] mt-4 md:text-[26px] xl:text-[32px]`}>ExtraExtra was created in Toronto by Benjamin Stubina and Benny Goldman.</h2>
-      </DevList>
-
-      <TechList className={`flex flex-col w-full my-4 self-center items-center`} array={shortStackArray}>
-        <h2 className={`underline text-[18px] my-4 md:text-[26px] xl:text-[32px]`}>Built with:</h2>
-      </TechList>
-    </>
+        <TechList array={shortStackArray} className={`_lg:w-1/4 ${``}`}>
+          <h2
+            className={`text-left text-xl font-semibold mb-4 ${`_md:text-center`}`}
+          >
+            Built with:
+          </h2>
+        </TechList>
+      </aside>
+    </div>
   );
 }
