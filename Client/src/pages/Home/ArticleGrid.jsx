@@ -3,7 +3,6 @@
  * Grid @ lg-viewport could be 2-col vs. 3-col
  * Grid margin-x is bad on mobile portrait - too far left
  * Item can take a [srcset] of images in the DB - "thumbnail" when loading, "image_url" when loaded, etc.
- * AnimatedLoader is off. We can bring it back in. Post-launch goal: Replace with Skeleton loader
  */
 
 import {
@@ -13,7 +12,6 @@ import {
   secondsToDate,
 } from "../../utils/utils";
 import Grid from "../../Components/ui/Grid";
-import AnimatedLoader from "../../Components/ui/AnimatedLoader";
 import LoadingGrid from "./LoadingGrid";
 
 export default function ArticleGrid({ fetch, filter, group }) {
@@ -26,20 +24,21 @@ export default function ArticleGrid({ fetch, filter, group }) {
 
   return (
     <Grid>
-      {fetch.loading
-        ? // <AnimatedLoader />
-          <LoadingGrid/>
-        : filteredData.map((article) => (
-            <ArticleItem
-              key={article.post_id}
-              sourceId={article.source_id}
-              link={stripLink(article.link_url)}
-              image={article.med_thumbnail_url || article.image_url}
-              date={secondsToDate(article.posted_time)}
-              sourceName={getTitle(article)}
-              caption={article.caption}
-            />
-          ))}
+      {fetch.loading ? (
+        <LoadingGrid />
+      ) : (
+        filteredData.map((article) => (
+          <ArticleItem
+            key={article.post_id}
+            sourceId={article.source_id}
+            link={stripLink(article.link_url)}
+            image={article.med_thumbnail_url || article.image_url}
+            date={secondsToDate(article.posted_time)}
+            sourceName={getTitle(article)}
+            caption={article.caption}
+          />
+        ))
+      )}
     </Grid>
   );
 }
