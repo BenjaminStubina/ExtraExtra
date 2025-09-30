@@ -19,27 +19,28 @@ app.get('/', async (req, res) => {
 });
 
 const pullDataAndSave = async () => {
-
     const publicationKeys = Object.keys(APILinks.APILinks[0]);
+
     const pullPromises = publicationKeys.map(async pubKey => {
-        const link = APILinks.APILinks[0][pubKey];
-        const res = await axios.get(link);
-        return res?.data.linkinbio_posts.map((postData) => {
-            return (
-                {
-                    ...postData, publication: pubKey
-                }
-            );
-        });
+        const link = APILinks.APILinks[0][pubKey]; // fixed APILINKS indexing
+        try {
+            const res = await axios.get(link);
+            return res?.data.linkinbio_posts.map((postData) => ({
+                ...postData,
+                publication: pubKey
+            }));
+        } catch (error) {
+            console.error(`Failed to fetch data for ${pubKey}:`, error.message);
+            return []; // Return an empty array so it doesn't break `flat()`
+        }
     });
 
     const postObjects = await Promise.all(pullPromises);
-
     await updateDB(postObjects.flat(1));
 };
 
 // Function automatically runs every 6 hours to fetch new articles
-const autoAPICall = setInterval(function () {
+const autoAPICall = setInterval(function() {
     pullDataAndSave();
     console.log('APIs Called');
 }, 21600000);
